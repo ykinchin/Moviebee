@@ -4,7 +4,7 @@ import { GiTreeBeehive } from 'react-icons/gi';
 
 const Header: FC = () => {
   return (
-    <header className='w-full flex justify-between text-2xl'>
+    <header className='w-full py-3 flex justify-between text-2xl'>
       <ul className='w-1/3 flex justify-between '>
         <li>
           <Link
