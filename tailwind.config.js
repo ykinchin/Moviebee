@@ -5,9 +5,10 @@ export default {
     extend: {
       colors: {
         'primary-300': '#191A1D',
-        'primary-500': '#010102',
-        'secondary-300': '#DE1002',
-        'secondary-500': '#BB0D02'
+        'primary-500': '#131416',
+        'secondary-300': '#bf8230',
+        'secondary-500': '#a65f00',
+        'secondary-700': '#DFC097'
       },
       fontFamily: {
         dmsans: ['DM Sans', 'sans-serif'],

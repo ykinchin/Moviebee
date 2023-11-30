@@ -1,5 +1,8 @@
 export const PUBLIC_ROUTES = {
-  main: '/'
+  main: '/',
+  login: '/login',
+  tvShows: '/tv-shows',
+  movies: '/movies'
 };
 
 export const PRIVATE_ROUTES = {

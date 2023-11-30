@@ -12,3 +12,7 @@ body {
 a:hover {
   color: #a65f00;
 }
+
+* {
+  box-sizing: border-box;
+}

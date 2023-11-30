@@ -1,19 +1,13 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { GiTreeBeehive } from 'react-icons/gi';
+import Logo from '../../shared/components/Logo';
 
 const Header: FC = () => {
   return (
-    <header className='w-full py-3 flex justify-between text-2xl'>
+    <header className='w-full flex justify-between text-2xl'>
       <ul className='w-1/3 flex justify-between '>
         <li>
-          <Link
-            to='/'
-            className='flex items-center'
-          >
-            MovieBee
-            <GiTreeBeehive />
-          </Link>
+          <Logo />
         </li>
         <li>
           <Link to='/movies'>Movies</Link>
@@ -23,7 +17,7 @@ const Header: FC = () => {
         </li>
       </ul>
       <span className='w-1/3 text-right'>
-        <Link to='/'>Log In</Link>
+        <Link to='/login'>Log In</Link>
       </span>
     </header>
   );
