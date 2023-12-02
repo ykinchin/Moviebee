@@ -4,7 +4,7 @@ import { publicRoutes } from './appRoutes';
 import Layout from '../components/Layout/Layout';
 import LoginPage from '../pages/LoginPage';
 import { PUBLIC_ROUTES } from '../shared/constants/paths';
-import AuthLayout from '../components/Layout/AuthLayout';
+import RegistrationPage from '../pages/RegistrationPage';
 
 const AppRouter: FC = () => {
   return (
@@ -21,6 +21,10 @@ const AppRouter: FC = () => {
       <Route
         path={PUBLIC_ROUTES.login}
         element={<LoginPage />}
+      />
+      <Route
+        path={PUBLIC_ROUTES.registration}
+        element={<RegistrationPage />}
       />
     </Routes>
   );
