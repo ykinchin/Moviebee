@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../shared/Logo';
-import { getAuth } from 'firebase/auth';
+import useAuth from '../../hooks/useAuth';
 
 const Header: FC = () => {
-  const auth = getAuth();
-  const userName = null;
-  console.log(auth);
+  const { user, logout } = useAuth();
+  const userName = user?.userEmail!.split('@')[0];
+
   return (
     <header className='w-full flex justify-between text-2xl'>
       <ul className='w-1/3 flex justify-between '>
@@ -20,13 +20,21 @@ const Header: FC = () => {
           <Link to='/tv-shows'>TV-Shows</Link>
         </li>
       </ul>
-      <span className='w-1/3 text-right'>
+      <div className='text-right w-1/3 '>
         {userName ? (
-          <Link to='/user'>{userName}</Link>
+          <div className='flex gap-6 items-baseline justify-end'>
+            <Link to='/user'>{userName}</Link>
+            <span
+              onClick={logout}
+              className='text-lg'
+            >
+              Sign Out
+            </span>
+          </div>
         ) : (
           <Link to='/login'>Log In</Link>
         )}
-      </span>
+      </div>
     </header>
   );
 };

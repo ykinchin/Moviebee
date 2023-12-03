@@ -8,7 +8,7 @@ export default {
         'primary-500': '#131416',
         'secondary-300': '#bf8230',
         'secondary-500': '#a65f00',
-        'secondary-700': '#DFC097'
+        'secondary-700': '#BF7520'
       },
       fontFamily: {
         dmsans: ['DM Sans', 'sans-serif'],

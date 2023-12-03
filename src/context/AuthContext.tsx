@@ -15,7 +15,7 @@ type AuthProviderType = {
 };
 
 type AuthContextType = {
-  guestSignIn: () => Promise<UserCredential | void>;
+  guestSignIn: () => void;
   user: IUser | null;
   createUser: (
     email: string,
@@ -34,7 +34,7 @@ interface IUser {
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  guestSignIn: () => Promise.resolve(),
+  guestSignIn: () => {},
   createUser: () => Promise.resolve(),
   signIn: () => Promise.resolve(),
   logout: () => Promise.resolve()
@@ -56,6 +56,7 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
   };
 
   const logout = () => {
+    setUser(null);
     return signOut(auth);
   };
 
