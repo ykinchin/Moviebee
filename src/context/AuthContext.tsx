@@ -8,7 +8,7 @@ import {
 } from 'firebase/auth';
 
 import { guest_login, guest_password } from '../shared/constants/constants';
-import { auth } from '../config/firebase';
+import { auth } from '../firebase-config';
 
 type AuthProviderType = {
   children: JSX.Element;

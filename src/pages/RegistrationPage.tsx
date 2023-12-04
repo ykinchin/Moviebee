@@ -6,7 +6,7 @@ import Logo from '../components/shared/Logo';
 // import axios from 'axios';
 // import useAuth from '../hooks/useAuth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../config/firebase';
+import { auth } from '../firebase-config';
 import { guest_login, guest_password } from '../shared/constants/constants';
 
 const RegistrationPage: FC = () => {
