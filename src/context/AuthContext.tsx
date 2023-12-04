@@ -7,7 +7,6 @@ import {
   UserCredential
 } from 'firebase/auth';
 
-import { guest_login, guest_password } from '../shared/constants/constants';
 import { auth } from '../firebase-config';
 
 type AuthProviderType = {
@@ -52,7 +51,11 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
   };
 
   const guestSignIn = () => {
-    return signInWithEmailAndPassword(auth, guest_login, guest_password);
+    return signInWithEmailAndPassword(
+      auth,
+      'bestguest@gmail.com',
+      'bestguestomg'
+    );
   };
 
   const logout = () => {
