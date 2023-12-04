@@ -1,13 +1,13 @@
-import { rapid_host, rapid_key } from '../shared/constants/constants';
+import { tmdb_key } from '../shared/constants/constants';
 import axios from 'axios';
 import { IData } from '../shared/types';
 
 class MovieService {
-  private url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming';
+  private url =
+    'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
   private config = {
     headers: {
-      'X-RapidAPI-Key': rapid_key,
-      'X-RapidAPI-Host': rapid_host
+      Authorization: `Bearer ${tmdb_key}`
     }
   };
   async getAllMovies() {

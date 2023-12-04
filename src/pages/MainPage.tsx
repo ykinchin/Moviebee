@@ -1,13 +1,9 @@
-import { useMovies } from '../hooks/useMovies';
+import Row from '../components/Row/Row';
 
 const MainPage = () => {
-  const { isLoading, data } = useMovies();
-  console.log(data);
   return (
     <div>
-      {data?.map((movie) => (
-        <div>{movie.titleText.text}</div>
-      ))}
+      <Row />
     </div>
   );
 };

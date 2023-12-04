@@ -1,24 +1,21 @@
 export interface IData {
-  page: number;
   results: IMovie[];
 }
 
 export interface IMovie {
-  id: string;
-  originalTitleText: { text: string };
-  titleText: { text: string };
-  releaseDate: {
-    day: number;
-    month: number;
-    year: number;
-  };
-  primaryImage: {
-    id: string;
-    url: string;
-  };
-  titleType: {
-    isEpisode: boolean;
-    isSeries: boolean;
-    id: string;
-  };
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title?: string;
+  name?: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
