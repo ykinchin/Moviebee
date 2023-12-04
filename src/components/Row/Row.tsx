@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { IMovie } from '../../shared/types';
 import RowItem from '../RowItem.tsx/RowItem';
 import { useMovies } from '../../hooks/useMovies';
 
