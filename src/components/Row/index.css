@@ -1,0 +1,9 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: grey;
+}
+
+.swiper-button-prev.swiper-button-prev-active,
+.swiper-button-next.swiper-button-next-active {
+  color: grey;
+}

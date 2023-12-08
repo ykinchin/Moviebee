@@ -3,15 +3,14 @@ import axios from 'axios';
 import { IData } from '../shared/types';
 
 class MovieService {
-  private url =
-    'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+  private url = 'https://api.themoviedb.org/3';
   private config = {
     headers: {
       Authorization: `Bearer ${tmdb_key}`
     }
   };
-  async getAllMovies() {
-    return axios.get<IData>(this.url, this.config);
+  async getData(endpoint: string) {
+    return axios.get<IData>(`${this.url}${endpoint}`, this.config);
   }
 }
 
