@@ -1,28 +1,16 @@
 import { FC } from 'react';
-import { SwiperSlide } from 'swiper/react';
-import RowItem from '../RowItem.tsx/RowItem';
-import { useMovies } from '../../hooks/useMovies';
-import Slider from '../Slider/Slider';
 import './index.css';
+import { useMovies } from '../../hooks/useMovies';
 
 const Row: FC = () => {
-  const { isLoading, data } = useMovies('/movie/popular?language=en-US&page=1');
+  const { data } = useMovies(
+    '/movie?page=1&limit=10&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=enName&selectFields=type&selectFields=year&selectFields=description&selectFields=shortDescription&selectFields=movieLength&selectFields=isSeries&selectFields=ticketsOnSale&selectFields=totalSeriesLength&selectFields=seriesLength&selectFields=ratingMpaa&selectFields=ageRating&selectFields=top10&selectFields=top250&selectFields=typeNumber&selectFields=status&selectFields=names&selectFields=logo&selectFields=poster&selectFields=backdrop&selectFields=rating&selectFields=votes&selectFields=genres&selectFields=countries&selectFields=releaseYears'
+  );
+  console.log(data);
+
   return (
     <>
-      {isLoading ? (
-        <div>loading</div>
-      ) : (
-        <>
-          <h2 className=''>title</h2>
-          <Slider>
-            {data!.map((movie) => (
-              <SwiperSlide key={movie.id}>
-                <RowItem movie={movie} />
-              </SwiperSlide>
-            ))}
-          </Slider>
-        </>
-      )}
+      <div>123</div>
     </>
   );
 };

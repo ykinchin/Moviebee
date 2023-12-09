@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { IMovie } from '../../shared/types';
-import { imageUrl } from '../../shared/constants/urls';
 
 interface RowItemProps {
   movie: IMovie;
@@ -10,7 +9,6 @@ const RowItem: FC<RowItemProps> = ({ movie }) => {
     <div className='inline-block cursor-pointer relative'>
       <img
         className='w-full h-auto block'
-        src={`${imageUrl}${movie?.backdrop_path || movie?.poster_path}`}
         alt={movie?.title}
       />
       <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>

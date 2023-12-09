@@ -1,16 +1,15 @@
-import { tmdb_key } from '../shared/constants/constants';
 import axios from 'axios';
-import { IData } from '../shared/types';
+import { kinopoisk_key } from '../shared/constants/constants';
 
 class MovieService {
-  private url = 'https://api.themoviedb.org/3';
+  private url = 'https://api.kinopoisk.dev/v1.4';
   private config = {
     headers: {
-      Authorization: `Bearer ${tmdb_key}`
+      'X-API-KEY': 'STK225D-NXKMVJ0-GX8SQF8-TAMXASQ'
     }
   };
   async getData(endpoint: string) {
-    return axios.get<IData>(`${this.url}${endpoint}`, this.config);
+    return axios.get(`${this.url}${endpoint}`, this.config);
   }
 }
 
