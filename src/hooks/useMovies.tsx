@@ -3,6 +3,6 @@ import movieService from '../services/movieService';
 
 export const useMovies = (endpoint: string) => {
   return useQuery(['movies'], () => movieService.getData(endpoint), {
-    select: ({ data }) => data.docs
+    select: ({ data }) => data.results
   });
 };
