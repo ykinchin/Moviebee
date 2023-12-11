@@ -1,14 +1,28 @@
 import { FC } from 'react';
-import './index.css';
-import { useMovies } from '../../hooks/useMovies';
+import Slider from '../Slider/Slider';
+import RowItem from '../RowItem.tsx/RowItem';
+import { SwiperSlide } from 'swiper/react';
+import { IMovie } from '../../shared/types';
 
-const Row: FC = () => {
-  const { data } = useMovies('/trending/movie/day?language=en-US');
-  console.log(data);
+interface RowProps {
+  title: string;
+  data: IMovie[] | undefined;
+}
 
+const Row: FC<RowProps> = ({ title, data }) => {
   return (
     <>
-      <div>123</div>
+      <>
+        <h1>{title}</h1>
+        <Slider>
+          {data &&
+            data.map((movie) => (
+              <SwiperSlide key={movie.id}>
+                <RowItem movie={movie} />
+              </SwiperSlide>
+            ))}
+        </Slider>
+      </>
     </>
   );
 };
