@@ -1,13 +1,25 @@
 import { FC } from 'react';
 import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 const Layout: FC = () => {
   return (
-    <>
-      <Header />
-      <Outlet />
-    </>
+    <Box
+      sx={{
+        backgroundColor: '#10141F',
+        display: 'flex',
+        justifyContent: 'center',
+        color: 'white',
+        gap: 3,
+        height: '100vh'
+      }}
+    >
+      <Box sx={{ width: '80%' }}>
+        <Header />
+        <Outlet />
+      </Box>
+    </Box>
   );
 };
 

@@ -1,18 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+html,
 body {
-  max-width: 1440px;
-  margin: 0 auto;
-  background-color: #191a1d;
-  color: #bf8230;
+  margin: 0;
+  padding: 0;
 }
 
-a:hover {
-  color: #a65f00;
-}
-
-* {
-  box-sizing: border-box;
+a {
+  text-decoration: none;
+  color: white;
 }

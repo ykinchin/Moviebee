@@ -1,22 +1,25 @@
+import React from 'react';
 import { FC } from 'react';
-import { GiTreeBeehive } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
+import HiveSharpIcon from '@mui/icons-material/HiveSharp';
 
-interface ILogoProps {
-  className?: string;
-}
-
-const Logo: FC<ILogoProps> = ({ className }) => {
+const Logo: FC = () => {
   return (
-    <>
-      <Link
-        to='/'
-        className={`${className} flex items-center`}
+    <Link to='/'>
+      <Box
+        display={'flex'}
+        alignItems={'center'}
+        sx={{
+          '&:hover .icon': {
+            color: 'orange'
+          }
+        }}
       >
         MovieBee
-        <GiTreeBeehive />
-      </Link>
-    </>
+        <HiveSharpIcon className='icon' />
+      </Box>
+    </Link>
   );
 };
 

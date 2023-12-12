@@ -1,7 +1,8 @@
 import { FC } from 'react';
+import Box from '@mui/material/Box/Box';
 
 const MoviePage: FC = () => {
-  return <div>MoviePage</div>;
+  return <Box>MoviePage</Box>;
 };
 
 export default MoviePage;

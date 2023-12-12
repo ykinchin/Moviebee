@@ -3,6 +3,7 @@ import { Navigation, Mousewheel } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import SwiperCore from 'swiper';
+import { Box } from '@mui/material';
 
 interface SliderProps {
   children: React.ReactNode;
@@ -12,7 +13,7 @@ const Slider: FC<SliderProps> = ({ children }) => {
   SwiperCore.use([Navigation, Mousewheel]);
 
   return (
-    <div>
+    <Box>
       <Swiper
         navigation
         loop
@@ -38,7 +39,7 @@ const Slider: FC<SliderProps> = ({ children }) => {
       >
         {children}
       </Swiper>
-    </div>
+    </Box>
   );
 };
 

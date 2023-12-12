@@ -3,6 +3,7 @@ import Slider from '../Slider/Slider';
 import RowItem from '../RowItem.tsx/RowItem';
 import { SwiperSlide } from 'swiper/react';
 import { IMovie } from '../../shared/types';
+import { Box } from '@mui/material';
 
 interface RowProps {
   title: string;
@@ -11,19 +12,17 @@ interface RowProps {
 
 const Row: FC<RowProps> = ({ title, data }) => {
   return (
-    <>
-      <>
-        <h1>{title}</h1>
-        <Slider>
-          {data &&
-            data.map((movie) => (
-              <SwiperSlide key={movie.id}>
-                <RowItem movie={movie} />
-              </SwiperSlide>
-            ))}
-        </Slider>
-      </>
-    </>
+    <Box>
+      <Box>{title}</Box>
+      <Slider>
+        {data &&
+          data.map((movie) => (
+            <SwiperSlide key={movie.id}>
+              <RowItem movie={movie} />
+            </SwiperSlide>
+          ))}
+      </Slider>
+    </Box>
   );
 };
 

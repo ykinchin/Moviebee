@@ -2,28 +2,29 @@ import { useTrending } from '../hooks/useTrending';
 import { useUpcoming } from '../hooks/useUpcoming';
 import Row from '../components/Row/Row';
 import { useTVShows } from '../hooks/useTVShows';
+import HeroSection from '../components/HeroSection/HeroSection';
 
 const MainPage = () => {
   const { data: trendingData } = useTrending();
   const { data: upcomingData } = useUpcoming();
   const { data: tvData } = useTVShows();
-  console.log(tvData);
 
   return (
-    <div>
+    <>
+      <HeroSection />
       <Row
-        title='Popular'
+        title='Trendig'
         data={trendingData}
       />
       <Row
-        title='Upcoming'
+        title='Upcoming movies'
         data={upcomingData}
       />
       <Row
         title='Popular TV-Shows'
         data={tvData}
       />
-    </div>
+    </>
   );
 };
 
