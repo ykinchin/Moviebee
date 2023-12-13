@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { IMovie } from '../../shared/types';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { bannerUrl } from '../../shared/constants/constants';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 interface HeroItemProps {
@@ -10,7 +9,6 @@ interface HeroItemProps {
 }
 
 const HeroItem: FC<HeroItemProps> = ({ movie }) => {
-  const navigate = useNavigate();
   return (
     <Box maxHeight={'90vh'}>
       <Box

@@ -12,10 +12,13 @@ const Layout: FC = () => {
         justifyContent: 'center',
         color: 'white',
         gap: 3,
-        height: '100vh'
+        height: '100%'
       }}
     >
-      <Box sx={{ width: '100%' }}>
+      <Box
+        sx={{ width: '100%' }}
+        height={'100%'}
+      >
         <Header />
         <Outlet />
       </Box>

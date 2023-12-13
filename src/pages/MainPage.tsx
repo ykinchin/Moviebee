@@ -12,7 +12,7 @@ const MainPage = () => {
   return (
     <>
       <HeroSection data={trendingData} />
-      {/* <Row
+      <Row
         title='Trendig'
         data={trendingData}
       />
@@ -23,7 +23,7 @@ const MainPage = () => {
       <Row
         title='Popular TV-Shows'
         data={tvData}
-      /> */}
+      />
     </>
   );
 };
