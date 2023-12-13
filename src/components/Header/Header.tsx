@@ -9,7 +9,10 @@ const Header: FC = () => {
   const userName = user?.userEmail!.split('@')[0];
 
   return (
-    <AppBar sx={{ backgroundColor: '#161d2f', py: '0.5rem' }}>
+    <AppBar
+      position='relative'
+      sx={{ backgroundColor: '#161d2f', py: '0.5rem', zIndex: '10' }}
+    >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography fontSize={30}>
           <Logo />

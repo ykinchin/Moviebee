@@ -15,7 +15,7 @@ const Layout: FC = () => {
         height: '100vh'
       }}
     >
-      <Box sx={{ width: '80%' }}>
+      <Box sx={{ width: '100%' }}>
         <Header />
         <Outlet />
       </Box>
