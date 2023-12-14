@@ -28,19 +28,19 @@ const HeroSection: FC<HeroSectionProps> = ({ data }) => {
             <SwiperSlide key={movie.id}>
               <HeroItem movie={movie} />
             </SwiperSlide>
-          ))}{' '}
-      </Swiper>{' '}
-      <Box
-        width={'100%'}
-        height={'20vh'}
-        bottom={'10px'}
-        position={'absolute'}
-        sx={{
-          zIndex: '100',
-          background:
-            'linear-gradient(0deg, rgba(16,20,31,1) 20%, rgba(16,20,31,0.6) 46%, rgba(255,255,255,0) 100%)'
-        }}
-      />
+          ))}
+        <Box
+          width={'100%'}
+          height={'20vh'}
+          bottom={'0'}
+          position={'absolute'}
+          sx={{
+            zIndex: '100',
+            background:
+              'linear-gradient(0deg, rgba(16,20,31,1) 20%, rgba(16,20,31,0.6) 46%, rgba(255,255,255,0) 100%)'
+          }}
+        />
+      </Swiper>
     </Box>
   );
 };

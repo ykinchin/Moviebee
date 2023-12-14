@@ -13,6 +13,12 @@ const RowItem: FC<RowItemProps> = ({ movie }) => {
       <img
         src={`${imageUrl}${movie?.backdrop_path || movie?.poster_path}`}
         alt={movie?.title}
+        style={{
+          width: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center top',
+          height: '260px'
+        }}
       />
 
       <Box>

@@ -14,9 +14,7 @@ const Header: FC = () => {
       sx={{ backgroundColor: '#161d2f', py: '0.5rem', zIndex: '10' }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography fontSize={30}>
-          <Logo />
-        </Typography>
+        <Logo />
 
         <Box
           width={'60%'}

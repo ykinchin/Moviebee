@@ -8,6 +8,7 @@ const Logo: FC = () => {
   return (
     <Link to='/'>
       <Box
+        fontSize={30}
         display={'flex'}
         alignItems={'center'}
         sx={{
