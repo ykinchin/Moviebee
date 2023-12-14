@@ -37,6 +37,8 @@ const RowItem: FC<RowItemProps> = ({ movie }) => {
           height: '100%',
           cursor: 'pointer',
           opacity: '0',
+          px: '2rem',
+          textAlign: 'center',
           '&:hover': { background: 'rgba(0, 0, 0, 0.8)', opacity: '100' }
         }}
       >
