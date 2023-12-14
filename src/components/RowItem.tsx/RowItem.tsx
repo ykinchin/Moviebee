@@ -3,13 +3,19 @@ import { IMovie } from '../../shared/types';
 import { imageUrl } from '../../shared/constants/constants';
 import './index.css';
 import Box from '@mui/material/Box/Box';
+import { useNavigate } from 'react-router-dom';
 
 interface RowItemProps {
   movie: IMovie;
 }
 const RowItem: FC<RowItemProps> = ({ movie }) => {
+  const navigate = useNavigate();
+
   return (
-    <Box>
+    <Box
+      position={'relative'}
+      onClick={() => navigate(`/${movie.id}`)}
+    >
       <img
         src={`${imageUrl}${movie?.backdrop_path || movie?.poster_path}`}
         alt={movie?.title}
@@ -17,12 +23,35 @@ const RowItem: FC<RowItemProps> = ({ movie }) => {
           width: '100%',
           objectFit: 'cover',
           objectPosition: 'center top',
-          height: '260px'
+          height: '260px',
+          display: 'block'
         }}
       />
-
-      <Box>
-        <Box>{movie?.title || movie?.name}</Box>
+      <Box
+        sx={{
+          boxSizing: 'border-box',
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          cursor: 'pointer',
+          opacity: '0',
+          '&:hover': { background: 'rgba(0, 0, 0, 0.8)', opacity: '100' }
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            textTransform: 'uppercase',
+            letterSpacing: '1px'
+          }}
+        >
+          {movie?.title || movie?.name}
+        </Box>
       </Box>
     </Box>
   );
