@@ -35,7 +35,7 @@ const HeroSection: FC<HeroSectionProps> = ({ data }) => {
           bottom={'0'}
           position={'absolute'}
           sx={{
-            zIndex: '100',
+            zIndex: '10',
             background:
               'linear-gradient(0deg, rgba(16,20,31,1) 20%, rgba(16,20,31,0.6) 46%, rgba(255,255,255,0) 100%)'
           }}
