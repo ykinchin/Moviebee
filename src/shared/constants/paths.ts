@@ -3,7 +3,8 @@ export const PUBLIC_ROUTES = {
   login: '/login',
   registration: '/registration',
   tvShows: '/tv-shows',
-  movies: '/movies'
+  movies: '/movies',
+  details: '/:id'
 };
 
 export const PRIVATE_ROUTES = {
