@@ -4,7 +4,7 @@ export const PUBLIC_ROUTES = {
   registration: '/registration',
   tvShows: '/tv-shows',
   movies: '/movies',
-  details: '/:id'
+  details: '/:category/:id'
 };
 
 export const PRIVATE_ROUTES = {

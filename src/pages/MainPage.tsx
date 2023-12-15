@@ -5,9 +5,9 @@ import { useTVShows } from '../hooks/useTVShows';
 import HeroSection from '../components/HeroSection/HeroSection';
 
 const MainPage = () => {
-  const { data: trendingData } = useTrending();
-  const { data: upcomingData } = useUpcoming();
-  const { data: tvData } = useTVShows();
+  const { data: trendingData } = useTrending('trending', 'popular');
+  // const { data: upcomingData } = useUpcoming();
+  // const { data: tvData } = useTVShows();
 
   return (
     <>
@@ -16,14 +16,14 @@ const MainPage = () => {
         title='Trendig'
         data={trendingData}
       />
-      <Row
+      {/* <Row
         title='Upcoming movies'
         data={upcomingData}
       />
       <Row
         title='Popular TV-Shows'
         data={tvData}
-      />
+      /> */}
     </>
   );
 };

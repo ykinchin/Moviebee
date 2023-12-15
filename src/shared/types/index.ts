@@ -2,6 +2,18 @@ export interface IData {
   results: IMovie[];
 }
 
+export interface IMovieType {
+  upcoming: string;
+  popular: string;
+  top_rated: string;
+}
+
+export interface ITvType {
+  top_rated: string;
+  popular: string;
+  on_the_air: string;
+}
+
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;

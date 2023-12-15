@@ -1,12 +1,11 @@
 import { useQuery } from 'react-query';
-import movieService from '../services/movieService';
+import ApiService from '../api/apiService';
 
-export const useTrending = () => {
-  return useQuery(
-    ['trending'],
-    () => movieService.getData('/trending/movie/day?language=en-US'),
-    {
-      select: ({ data }) => data.results
-    }
-  );
+export const useTrending = (
+  category: string,
+  url: 'popular' | 'on_the_air' | 'top_rated'
+) => {
+  return useQuery(category, () => ApiService.getTvList(url), {
+    select: ({ data }) => data.results
+  });
 };
