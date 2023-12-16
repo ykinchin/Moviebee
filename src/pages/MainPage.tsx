@@ -4,24 +4,26 @@ import { useTvShows } from '../hooks/useTvShows';
 import { useMovie } from '../hooks/useMovies';
 
 const MainPage = () => {
-  const { data: trendingData } = useTvShows('top_rated');
-  const { data: upcomingData } = useMovie('popular');
+  const { data: popularTvs } = useTvShows('popular');
+  const { data: onTheAirTvs } = useTvShows('on_the_air');
+  const { data: popularMovies } = useMovie('popular');
+  const { data: upcomingMovies } = useMovie('upcoming');
 
   return (
     <>
-      <HeroSection data={upcomingData} />
+      <HeroSection data={popularMovies} />
       <Row
-        title='Trendig'
-        data={trendingData}
-      />
-      {/* <Row
         title='Upcoming movies'
-        data={upcomingData}
+        data={upcomingMovies}
+      />
+      <Row
+        title='On the air TV-Shows'
+        data={onTheAirTvs}
       />
       <Row
         title='Popular TV-Shows'
-        data={tvData}
-      /> */}
+        data={popularTvs}
+      />
     </>
   );
 };
