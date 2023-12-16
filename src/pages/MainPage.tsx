@@ -1,17 +1,15 @@
-import { useTrending } from '../hooks/useTrending';
-import { useUpcoming } from '../hooks/useUpcoming';
 import Row from '../components/Row/Row';
-import { useTVShows } from '../hooks/useTVShows';
 import HeroSection from '../components/HeroSection/HeroSection';
+import { useTvShows } from '../hooks/useTvShows';
+import { useMovie } from '../hooks/useMovies';
 
 const MainPage = () => {
-  const { data: trendingData } = useTrending('trending', 'popular');
-  // const { data: upcomingData } = useUpcoming();
-  // const { data: tvData } = useTVShows();
+  const { data: trendingData } = useTvShows('top_rated');
+  const { data: upcomingData } = useMovie('popular');
 
   return (
     <>
-      <HeroSection data={trendingData} />
+      <HeroSection data={upcomingData} />
       <Row
         title='Trendig'
         data={trendingData}

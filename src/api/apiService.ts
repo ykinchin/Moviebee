@@ -1,26 +1,15 @@
 import axios from 'axios';
 import { tmdb_key } from '../shared/constants/constants';
 
-import { IData } from '../shared/types';
+import { IData, IMovieType, ITvType } from '../shared/types';
 
-export const category = {
-  movie: 'movie',
-  tv: 'tv'
-};
-
-interface tt {
-  upcoming: string;
-  popular: string;
-  top_rated: string;
-}
-
-export const movieType: tt = {
+export const movieType: IMovieType = {
   upcoming: 'upcoming',
   popular: 'popular',
   top_rated: 'top_rated'
 };
 
-export const tvType = {
+export const tvType: ITvType = {
   popular: 'popular',
   top_rated: 'top_rated',
   on_the_air: 'on_the_air'
@@ -33,9 +22,9 @@ class ApiService {
       Authorization: `Bearer ${tmdb_key}`
     }
   };
-  async getMovieList(type: string) {
-    const url = this.baseUrl + 'movie/' + movieType.top_rated;
-    return axios.get<IData>(`${url}${type}`, this.config);
+  async getMovieList(type: keyof typeof movieType) {
+    const url = this.baseUrl + 'movie/' + movieType[type];
+    return axios.get<IData>(`${url}`, this.config);
   }
   async getTvList(type: keyof typeof tvType) {
     const url = this.baseUrl + 'tv/' + tvType[type];

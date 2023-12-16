@@ -1,12 +1,8 @@
-// import { useQuery } from 'react-query';
-// import movieService from '../services/movieService';
+import { useQuery } from 'react-query';
+import ApiService from '../api/apiService';
 
-// export const useTVShows = () => {
-//   return useQuery(
-//     ['tv'],
-//     () => movieService.getData('/trending/tv/day?language=en-US'),
-//     {
-//       select: ({ data }) => data.results
-//     }
-//   );
-// };
+export const useTvShows = (tvType: 'popular' | 'on_the_air' | 'top_rated') => {
+  return useQuery(['tv', tvType], () => ApiService.getTvList(tvType), {
+    select: ({ data }) => data.results
+  });
+};
