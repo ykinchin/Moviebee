@@ -3,6 +3,11 @@ import { tmdb_key } from '../shared/constants/constants';
 
 import { IData, IMovieType, ITvType } from '../shared/types';
 
+export const category = {
+  movie: 'movie',
+  tv: 'tv'
+};
+
 export const movieType: IMovieType = {
   upcoming: 'upcoming',
   popular: 'popular',
@@ -17,7 +22,8 @@ export const tvType: ITvType = {
 
 class ApiService {
   private baseUrl = 'https://api.themoviedb.org/3/';
-  private config = {
+
+  public config = {
     headers: {
       Authorization: `Bearer ${tmdb_key}`
     }
@@ -30,8 +36,15 @@ class ApiService {
     const url = this.baseUrl + 'tv/' + tvType[type];
     return axios.get<IData>(`${url}`, this.config);
   }
-  async search(category: string) {
-    return axios.get<IData>(`${this.baseUrl}${category}`, this.config);
+  async search(cate: keyof typeof category, query: string) {
+    const url = this.baseUrl + 'search/' + category[cate];
+    const configWithQuery = {
+      ...this.config,
+      params: {
+        query: query
+      }
+    };
+    return axios.get<IData>(`${url}`, configWithQuery);
   }
   async detail(endpoint: string) {
     return axios.get<IData>(`${this.baseUrl}${endpoint}`, this.config);
