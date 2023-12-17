@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../shared/Logo';
 import useAuth from '../../hooks/useAuth';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import SearchField from '../SearchField/SearchField';
 
 const Header: FC = () => {
   const { user, logout } = useAuth();
@@ -17,7 +18,7 @@ const Header: FC = () => {
         <Logo />
 
         <Box
-          width={'60%'}
+          width={'40%'}
           display={'flex'}
           gap={20}
         >
@@ -39,10 +40,13 @@ const Header: FC = () => {
           </Link>
         </Box>
         <Box
-          width={300}
+          width={'30%'}
           display={'flex'}
-          justifyContent={'right'}
+          justifyContent={'end'}
+          gap={20}
         >
+          <SearchField />
+
           {userName ? (
             <Box
               width={'full'}
