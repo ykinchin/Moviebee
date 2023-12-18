@@ -7,13 +7,9 @@ import apiService from '../../api/apiService';
 const SearchInput = () => {
   const [isOpened, setIsOpened] = useState(false);
 
-  const { data } = useQuery(
-    ['tvSearch'],
-    () => apiService.search('tv', 'mario'),
-    {
-      select: ({ data }) => data.results
-    }
-  );
+  const { data } = useQuery(['tvSearch'], () => apiService.search('tv', ''), {
+    select: ({ data }) => data.results
+  });
   console.log(data);
 
   const handleSearchIconClick = () => {
