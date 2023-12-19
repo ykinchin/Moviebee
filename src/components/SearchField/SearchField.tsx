@@ -4,6 +4,7 @@ import { Box, IconButton, InputBase, Slide } from '@mui/material';
 import { useQuery } from 'react-query';
 import apiService from '../../api/apiService';
 import useDebounce from '../../hooks/useDebounce';
+import SearchResults from '../SearchResults/SearchResults';
 
 const SearchInput = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -21,7 +22,7 @@ const SearchInput = () => {
     },
     {
       enabled: !!debouncedSearchTerm,
-      select: (data) => data?.results
+      select: (data) => data?.results?.slice(0, 5)
     }
   );
 
@@ -35,6 +36,7 @@ const SearchInput = () => {
     <Box
       sx={{ minWidth: '300px' }}
       display={'flex'}
+      position={'relative'}
     >
       <IconButton onClick={handleSearchIconClick}>
         <SearchIcon sx={{ color: 'white', fontSize: '2rem' }} />
@@ -52,6 +54,7 @@ const SearchInput = () => {
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </Slide>
+      <SearchResults data={data} />
     </Box>
   );
 };

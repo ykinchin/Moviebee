@@ -1,7 +1,27 @@
 import { FC } from 'react';
+import { IMovie } from '../../shared/types';
+import { Box } from '@mui/material';
+import ResultItem from './ResultItem';
 
-const SearchResults: FC = () => {
-  return <div>SearchResults</div>;
+interface SearchResultsProps {
+  data: IMovie[] | undefined;
+}
+
+const SearchResults: FC<SearchResultsProps> = ({ data }) => {
+  return (
+    <Box
+      position={'absolute'}
+      sx={{
+        background: '#161d2f',
+        top: '65px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1
+      }}
+    >
+      {data && data.map((movie) => <ResultItem movie={movie} />)}
+    </Box>
+  );
 };
 
 export default SearchResults;
