@@ -17,7 +17,8 @@ const ResultItem: FC<ResultItemProps> = ({ movie }) => {
         backgroundColor: 'inherit',
         display: 'flex',
         color: 'white',
-        alignItems: 'center'
+        alignItems: 'center',
+        ':hover': { cursor: 'pointer' }
       }}
       onClick={() => navigate(`/${movie.id}`)}
     >
