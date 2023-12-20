@@ -19,7 +19,7 @@ const ResultItem: FC<ResultItemProps> = ({ movie }) => {
         color: 'white',
         alignItems: 'center'
       }}
-      onClick={() => navigate('/')}
+      onClick={() => navigate(`/${movie.id}`)}
     >
       {movie.poster_path ? (
         <CardMedia
