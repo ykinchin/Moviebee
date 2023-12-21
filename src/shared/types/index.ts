@@ -20,12 +20,13 @@ export interface IMovie {
   genre_ids: number[];
   media_type?: 'movie' | 'tv';
   id: number;
+  first_air_date?: string;
   original_language: string;
   original_title: string;
   overview: string;
   popularity: number;
   poster_path: string;
-  release_date: string;
+  release_date?: string;
   title?: string;
   name?: string;
   video: boolean;
