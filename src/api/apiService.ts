@@ -36,8 +36,8 @@ class ApiService {
     const url = this.baseUrl + 'tv/' + tvType[type];
     return axios.get<IData>(`${url}`, this.config);
   }
-  async search(cate: keyof typeof category, query: string) {
-    const url = this.baseUrl + 'search/' + category[cate];
+  async search(query: string) {
+    const url = this.baseUrl + 'search/multi';
     const configWithQuery = {
       ...this.config,
       params: {

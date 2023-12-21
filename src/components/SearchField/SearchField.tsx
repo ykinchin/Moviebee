@@ -16,7 +16,7 @@ const SearchInput = () => {
     ['movieSearch', debouncedSearchTerm],
     async () => {
       if (debouncedSearchTerm) {
-        const response = await apiService.search('movie', debouncedSearchTerm);
+        const response = await apiService.search(debouncedSearchTerm);
         return response.data;
       }
     },
