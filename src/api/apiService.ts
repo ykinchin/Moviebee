@@ -1,12 +1,7 @@
 import axios from 'axios';
 import { tmdb_key } from '../shared/constants/constants';
 
-import { IData, IMovieType, ITvType } from '../shared/types';
-
-export const category = {
-  movie: 'movie',
-  tv: 'tv'
-};
+import { IData, IMovie, IMovieType, ITvType } from '../shared/types';
 
 export const movieType: IMovieType = {
   upcoming: 'upcoming',
@@ -30,11 +25,11 @@ class ApiService {
   };
   async getMovieList(type: keyof typeof movieType) {
     const url = this.baseUrl + 'movie/' + movieType[type];
-    return axios.get<IData>(`${url}`, this.config);
+    return axios.get<IData>(url, this.config);
   }
   async getTvList(type: keyof typeof tvType) {
     const url = this.baseUrl + 'tv/' + tvType[type];
-    return axios.get<IData>(`${url}`, this.config);
+    return axios.get<IData>(url, this.config);
   }
   async search(query: string) {
     const url = this.baseUrl + 'search/multi';
@@ -46,8 +41,10 @@ class ApiService {
     };
     return axios.get<IData>(`${url}`, configWithQuery);
   }
-  async detail(endpoint: string) {
-    return axios.get<IData>(`${this.baseUrl}${endpoint}`, this.config);
+  async detail(category?: 'tv' | 'movie', id?: string) {
+    const url = this.baseUrl + category + '/' + id;
+    console.log(url);
+    return axios.get<IMovie>(url, this.config);
   }
   async similar(endpoint: string) {
     return axios.get<IData>(`${this.baseUrl}${endpoint}`, this.config);
