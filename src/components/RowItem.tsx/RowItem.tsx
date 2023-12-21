@@ -10,11 +10,12 @@ interface RowItemProps {
 }
 const RowItem: FC<RowItemProps> = ({ movie }) => {
   const navigate = useNavigate();
+  const link = `/${movie.first_air_date ? 'tv' : 'movie'}/${movie.id}`;
 
   return (
     <Box
       position={'relative'}
-      onClick={() => navigate(`/${movie.id}`)}
+      onClick={() => navigate(link)}
     >
       <img
         src={`${imageUrl}${movie?.backdrop_path || movie?.poster_path}`}

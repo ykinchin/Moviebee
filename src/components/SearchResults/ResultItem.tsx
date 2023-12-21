@@ -20,7 +20,7 @@ const ResultItem: FC<ResultItemProps> = ({ movie }) => {
         alignItems: 'center',
         ':hover': { cursor: 'pointer' }
       }}
-      onClick={() => navigate(`/${movie.id}`)}
+      onClick={() => navigate(`/${movie.media_type}/${movie.id}`)}
     >
       {movie.poster_path ? (
         <CardMedia
