@@ -18,6 +18,7 @@ export interface IMovie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
+  media_type?: 'movie' | 'tv';
   id: number;
   original_language: string;
   original_title: string;
