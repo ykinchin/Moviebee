@@ -14,11 +14,14 @@ export interface ITvType {
   on_the_air: string;
 }
 
-export interface IMovie {
+export interface IMediaType {
+  media_type?: 'movie' | 'tv';
+}
+
+export interface IMovie extends IMediaType {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
-  media_type?: 'movie' | 'tv';
   id: number;
   first_air_date?: string;
   original_language: string;
