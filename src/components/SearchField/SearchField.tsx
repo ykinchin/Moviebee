@@ -26,8 +26,6 @@ const SearchInput = () => {
     }
   );
 
-  console.log(data);
-
   const handleSearchIconClick = () => {
     setIsOpened(!isOpened);
   };

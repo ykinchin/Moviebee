@@ -43,7 +43,6 @@ class ApiService {
   }
   async detail(category?: 'tv' | 'movie', id?: string) {
     const url = this.baseUrl + category + '/' + id;
-    console.log(url);
     return axios.get<IMovie>(url, this.config);
   }
   async similar(endpoint: string) {
