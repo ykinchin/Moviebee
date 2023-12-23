@@ -36,3 +36,35 @@ export interface IMovie extends IMediaType {
   vote_average: number;
   vote_count: number;
 }
+
+export interface IGenres {
+  id: number;
+  name: string;
+}
+
+export interface ICompanies {
+  id: number;
+  logo_path: string;
+  name: string;
+  origin_country: string;
+}
+
+export interface ICountries {
+  iso_3166_1: string;
+  name: string;
+}
+
+export interface DetailedMovie extends IMovie {
+  belongs_to_collection: null | string;
+  budget: number;
+  genres: IGenres[];
+  homepage: string;
+  imdb_id: string;
+  production_companies: ICompanies[];
+
+  production_countries: ICountries[];
+  revenue: number;
+  runtime: number;
+  status: string;
+  tagline: string;
+}
