@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { tmdb_key } from '../shared/constants/constants';
 
-import { IData, IMovie, IMovieType, ITvType } from '../shared/types';
+import { IData, IDetailedMovie, IMovieType, ITvType } from '../shared/types';
 
 export const movieType: IMovieType = {
   upcoming: 'upcoming',
@@ -43,7 +43,7 @@ class ApiService {
   }
   async detail(category?: 'tv' | 'movie', id?: string) {
     const url = this.baseUrl + category + '/' + id;
-    return axios.get<IMovie>(url, this.config);
+    return axios.get<IDetailedMovie>(url, this.config);
   }
   async similar(endpoint: string) {
     return axios.get<IData>(`${this.baseUrl}${endpoint}`, this.config);
