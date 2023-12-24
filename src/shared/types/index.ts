@@ -54,14 +54,13 @@ export interface ICountries {
   name: string;
 }
 
-export interface DetailedMovie extends IMovie {
+export interface IDetailedMovie extends IMovie {
   belongs_to_collection: null | string;
   budget: number;
   genres: IGenres[];
   homepage: string;
   imdb_id: string;
   production_companies: ICompanies[];
-
   production_countries: ICountries[];
   revenue: number;
   runtime: number;
