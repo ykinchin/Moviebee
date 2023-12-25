@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { tmdb_key } from '../shared/constants/constants';
 
-import { IData, IDetailedMovie, IMovieType, ITvType } from '../shared/types';
+import {
+  ICredits,
+  IData,
+  IDetailedMovie,
+  IMovieType,
+  ITvType
+} from '../shared/types';
 
 export const movieType: IMovieType = {
   upcoming: 'upcoming',
@@ -44,6 +50,10 @@ class ApiService {
   async detail(category?: 'tv' | 'movie', id?: string) {
     const url = this.baseUrl + category + '/' + id;
     return axios.get<IDetailedMovie>(url, this.config);
+  }
+  async credits(category?: 'tv' | 'movie', id?: string) {
+    const url = this.baseUrl + category + '/' + id + '/credits';
+    return axios.get<ICredits>(url, this.config);
   }
   async similar(endpoint: string) {
     return axios.get<IData>(`${this.baseUrl}${endpoint}`, this.config);
