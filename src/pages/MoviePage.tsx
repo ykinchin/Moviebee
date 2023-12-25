@@ -9,7 +9,7 @@ import { Chip, Typography, Divider } from '@mui/material';
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
 
-  const { data: movie } = useQuery(['movie'], async () => {
+  const { data: movie } = useQuery([id], async () => {
     const response = await apiService.detail(category, id);
     return response.data;
   });
@@ -74,6 +74,7 @@ const MoviePage: FC = () => {
             <Box sx={{ display: 'flex', gap: 0.5 }}>
               {movie?.genres.map((genre) => (
                 <Chip
+                  key={genre.id}
                   label={genre.name}
                   color='default'
                   variant='outlined'
@@ -125,6 +126,7 @@ const MoviePage: FC = () => {
             <Box sx={{ display: 'flex', gap: 0.5 }}>
               {movie?.production_countries.map((country) => (
                 <Chip
+                  key={country.iso_3166_1}
                   label={country.iso_3166_1}
                   color='default'
                   variant='outlined'
