@@ -43,7 +43,7 @@ const MoviePage: FC = () => {
             }}
             pb={5}
           >
-            <Typography variant='h4'>{movie?.title}</Typography>
+            <Typography variant='h4'>{movie?.title || movie?.name}</Typography>
             <Box
               sx={{
                 border: `4px solid ${
