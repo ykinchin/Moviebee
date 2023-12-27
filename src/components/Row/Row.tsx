@@ -12,13 +12,11 @@ interface RowProps {
 
 const Row: FC<RowProps> = ({ title, data }) => {
   return (
-    <Box
-      px={15}
-      pb={10}
-    >
+    <Box mb={10}>
       <Typography
         variant='h5'
         pb={3}
+        sx={{ textTransform: 'uppercase' }}
       >
         {title}
       </Typography>
