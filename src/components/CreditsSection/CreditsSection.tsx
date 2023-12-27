@@ -1,14 +1,6 @@
 import { FC, useState } from 'react';
 import { ICredits } from '../../shared/types';
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  Avatar,
-  CardHeader
-} from '@mui/material';
+import { Box, Typography, Card, Avatar, CardHeader } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { imageUrl } from '../../shared/constants/constants';
 
@@ -21,7 +13,7 @@ const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <Box>
+    <Box mb={10}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography sx={{ textTransform: 'uppercase', fontSize: '24px' }}>
           {title}
