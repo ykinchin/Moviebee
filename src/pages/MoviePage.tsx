@@ -5,6 +5,7 @@ import apiService from '../api/apiService';
 import { useParams } from 'react-router-dom';
 import { imageUrl } from '../shared/constants/constants';
 import { Chip, Typography, Divider } from '@mui/material';
+import CreditsSection from '../components/CreditsSection/CreditsSection';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
@@ -15,6 +16,10 @@ const MoviePage: FC = () => {
   });
   console.log(movie);
 
+  const { data: credits } = useQuery([`${id}-credits`], async () => {
+    const response = await apiService.credits(category, id);
+    return response.data;
+  });
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
       <Box sx={{ display: 'flex', width: '100%', gap: 20 }}>
@@ -153,6 +158,12 @@ const MoviePage: FC = () => {
           </Typography>
         </Box>
       </Box>
+      {credits && (
+        <CreditsSection
+          credits={credits}
+          title='cast'
+        />
+      )}
     </Box>
   );
 };
