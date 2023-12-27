@@ -5,7 +5,6 @@ import {
   ICredits,
   IData,
   IDetailedMovie,
-  IMovie,
   IMovieType,
   ITvType
 } from '../shared/types';
