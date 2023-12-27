@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { imageUrl } from '../shared/constants/constants';
 import { Chip, Typography, Divider } from '@mui/material';
 import CreditsSection from '../components/CreditsSection/CreditsSection';
+import Row from '../components/Row/Row';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
@@ -14,15 +15,20 @@ const MoviePage: FC = () => {
     const response = await apiService.detail(category, id);
     return response.data;
   });
-  console.log(movie);
 
   const { data: credits } = useQuery([`${id}-credits`], async () => {
     const response = await apiService.credits(category, id);
     return response.data;
   });
+
+  const { data: similar } = useQuery([`${id}-similar`], async () => {
+    const response = await apiService.similar(category, id);
+    return response.data.results;
+  });
+  console.log(similar);
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
-      <Box sx={{ display: 'flex', width: '100%', gap: 20 }}>
+      <Box sx={{ display: 'flex', width: '100%', gap: 20, pb: 10 }}>
         <Box>
           <img
             src={`${imageUrl}${movie?.poster_path}`}
@@ -162,6 +168,12 @@ const MoviePage: FC = () => {
         <CreditsSection
           credits={credits}
           title='cast'
+        />
+      )}
+      {similar && (
+        <Row
+          data={similar}
+          title='You might like it'
         />
       )}
     </Box>
