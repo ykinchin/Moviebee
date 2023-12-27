@@ -5,6 +5,7 @@ import {
   ICredits,
   IData,
   IDetailedMovie,
+  IMovie,
   IMovieType,
   ITvType
 } from '../shared/types';
@@ -55,8 +56,9 @@ class ApiService {
     const url = this.baseUrl + category + '/' + id + '/credits';
     return axios.get<ICredits>(url, this.config);
   }
-  async similar(endpoint: string) {
-    return axios.get<IData>(`${this.baseUrl}${endpoint}`, this.config);
+  async similar(category?: 'tv' | 'movie', id?: string) {
+    const url = this.baseUrl + category + '/' + id + '/similar';
+    return axios.get<IData>(url, this.config);
   }
 }
 
