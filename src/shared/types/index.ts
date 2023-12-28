@@ -1,6 +1,9 @@
 export interface IData {
   results: IMovie[];
 }
+export interface IDataReviews {
+  results: IReview[];
+}
 
 export interface IMovieType {
   upcoming: string;
@@ -100,4 +103,19 @@ export interface ICrew {
 export interface ICredits {
   cast: ICast[];
   crew: ICrew[];
+}
+
+export interface IReview {
+  author: string;
+  author_details: {
+    name: string;
+    username: string;
+    avatar_path: string;
+    rating: null | number;
+  };
+  content: string;
+  created_at: string;
+  id: string;
+  updated_at: string;
+  url: string;
 }
