@@ -4,6 +4,7 @@ import { tmdb_key } from '../shared/constants/constants';
 import {
   ICredits,
   IData,
+  IDataReviews,
   IDetailedMovie,
   IMovieType,
   ITvType
@@ -58,6 +59,10 @@ class ApiService {
   async similar(category?: 'tv' | 'movie', id?: string) {
     const url = this.baseUrl + category + '/' + id + '/similar';
     return axios.get<IData>(url, this.config);
+  }
+  async reviews(category?: 'tv' | 'movie', id?: string) {
+    const url = this.baseUrl + category + '/' + id + '/reviews';
+    return axios.get<IDataReviews>(url, this.config);
   }
 }
 
