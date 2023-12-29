@@ -31,12 +31,11 @@ const ResultItem: FC<ResultItemProps> = ({ movie }) => {
       ) : (
         <Box
           sx={{
-            height: '130px',
-            width: '110px',
-            backgroundColor: 'gray',
+            backgroundColor: 'inherit',
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
+            color: 'white',
+            alignItems: 'center',
+            ':hover': { cursor: 'pointer' }
           }}
         >
           <ImageNotSupportedIcon />
