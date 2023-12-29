@@ -33,7 +33,8 @@ const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
                 backgroundColor: 'inherit',
                 mb: 1,
                 color: 'white',
-                borderBottom: '1px solid rgba(255,255,255,0.4)'
+                borderBottomColor: 'rgba(255,255,255,0.4)',
+                borderRadius: '0'
               }}
             >
               <CardHeader
