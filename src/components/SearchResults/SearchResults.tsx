@@ -19,7 +19,13 @@ const SearchResults: FC<SearchResultsProps> = ({ data }) => {
         gap: 1
       }}
     >
-      {data && data.map((movie) => <ResultItem movie={movie} />)}
+      {data &&
+        data.map((movie) => (
+          <ResultItem
+            key={movie.id}
+            movie={movie}
+          />
+        ))}
     </Box>
   );
 };
