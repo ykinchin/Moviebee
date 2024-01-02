@@ -25,7 +25,6 @@ const MoviePage: FC = () => {
     const response = await apiService.similar(category, id);
     return response.data.results;
   });
-  console.log(similar);
 
   const { data: reviews } = useQuery([`${id}-reviews`], async () => {
     const response = await apiService.reviews(category, id);
