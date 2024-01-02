@@ -26,6 +26,12 @@ const MoviePage: FC = () => {
     return response.data.results;
   });
   console.log(similar);
+
+  const { data: reviews } = useQuery([`${id}-reviews`], async () => {
+    const response = await apiService.reviews(category, id);
+    return response.data.results;
+  });
+
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
       <Box sx={{ display: 'flex', width: '100%', gap: 20, pb: 10 }}>
