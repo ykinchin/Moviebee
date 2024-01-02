@@ -7,6 +7,7 @@ import { imageUrl } from '../shared/constants/constants';
 import { Chip, Typography, Divider } from '@mui/material';
 import CreditsSection from '../components/CreditsSection/CreditsSection';
 import Row from '../components/Row/Row';
+import ReviewsSection from '../components/ReviewsSection/ReviewsSection';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
@@ -181,6 +182,7 @@ const MoviePage: FC = () => {
           title='You might like it'
         />
       )}
+      {reviews && <ReviewsSection reviews={reviews} />}
     </Box>
   );
 };
