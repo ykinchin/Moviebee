@@ -14,12 +14,14 @@ const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
 
   return (
     <Box mb={10}>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box
+        sx={{ display: 'flex', alignItems: 'center' }}
+        onClick={() => setIsOpened(!isOpened)}
+      >
         <Typography sx={{ textTransform: 'uppercase', fontSize: '24px' }}>
           {title}
         </Typography>
         <ArrowDropDownIcon
-          onClick={() => setIsOpened(!isOpened)}
           sx={{ fontSize: '3rem', rotate: `${!isOpened && '90deg'}` }}
         />
       </Box>
