@@ -15,7 +15,7 @@ const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
   return (
     <Box mb={10}>
       <Box
-        sx={{ display: 'flex', alignItems: 'center' }}
+        sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
         onClick={() => setIsOpened(!isOpened)}
       >
         <Typography sx={{ textTransform: 'uppercase', fontSize: '24px' }}>
