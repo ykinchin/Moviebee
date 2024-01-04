@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IReview } from '../../shared/types';
+import { IReview } from '../../../../shared/types';
 import {
   Card,
   CardHeader,
@@ -7,7 +7,7 @@ import {
   CardContent,
   Typography
 } from '@mui/material';
-import { imageUrl } from '../../shared/constants/constants';
+import { imageUrl } from '../../../../shared/constants/constants';
 
 interface ReviewItemProps {
   review: IReview;

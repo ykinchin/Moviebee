@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IReview } from '../../shared/types';
+import { IReview } from '../../../../shared/types';
 import { Box } from '@mui/material';
 import ReviewItem from './ReviewItem';
 

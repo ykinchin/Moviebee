@@ -1,8 +1,9 @@
 import { FC, useState } from 'react';
-import { ICredits } from '../../shared/types';
+import { ICredits } from '../../../../shared/types';
 import { Box, Typography, Card, Avatar, CardHeader } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { imageUrl } from '../../shared/constants/constants';
+import { imageUrl } from '../../../../shared/constants/constants';
+import { useNavigate } from 'react-router-dom';
 
 interface CreditsSectionProps {
   credits: ICredits;
@@ -11,6 +12,7 @@ interface CreditsSectionProps {
 
 const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
   const [isOpened, setIsOpened] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Box mb={10}>
@@ -29,6 +31,7 @@ const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
         <Box>
           {credits.cast.map((person) => (
             <Card
+              onClick={() => navigate(`/credits/${person.id}`)}
               variant='outlined'
               key={person.id}
               sx={{
@@ -36,7 +39,8 @@ const CreditsSection: FC<CreditsSectionProps> = ({ credits, title }) => {
                 mb: 1,
                 color: 'white',
                 borderBottomColor: 'rgba(255,255,255,0.4)',
-                borderRadius: '0'
+                borderRadius: '0',
+                cursor: 'pointer'
               }}
             >
               <CardHeader

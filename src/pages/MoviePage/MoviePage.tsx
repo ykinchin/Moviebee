@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import Box from '@mui/material/Box/Box';
 import { useQuery } from 'react-query';
-import apiService from '../api/apiService';
+import apiService from '../../api/apiService';
 import { useParams } from 'react-router-dom';
-import { imageUrl } from '../shared/constants/constants';
+import { imageUrl } from '../../shared/constants/constants';
 import { Chip, Typography, Divider } from '@mui/material';
-import CreditsSection from '../components/CreditsSection/CreditsSection';
-import Row from '../components/Row/Row';
-import ReviewsSection from '../components/ReviewsSection/ReviewsSection';
+import CreditsSection from './components/CreditsSection/CreditsSection';
+import Row from '../../components/Row/Row';
+import ReviewsSection from './components/ReviewsSection/ReviewsSection';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();

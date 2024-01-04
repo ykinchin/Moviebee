@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { IMovie } from '../../shared/types';
+import { IMovie } from '../../../../shared/types';
 import { Box, Button, Paper, Typography } from '@mui/material';
-import { bannerUrl } from '../../shared/constants/constants';
+import { bannerUrl } from '../../../../shared/constants/constants';
 import { Link } from 'react-router-dom';
 
 interface HeroItemProps {

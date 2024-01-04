@@ -1,7 +1,7 @@
-import Row from '../components/Row/Row';
-import HeroSection from '../components/HeroSection/HeroSection';
-import { useTvShows } from '../hooks/useTvShows';
-import { useMovie } from '../hooks/useMovies';
+import Row from '../../components/Row/Row';
+import HeroSection from './components/HeroSection/HeroSection';
+import { useTvShows } from '../../hooks/useTvShows';
+import { useMovie } from '../../hooks/useMovies';
 import { Box } from '@mui/material';
 
 const MainPage = () => {

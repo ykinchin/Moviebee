@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import Logo from '../components/shared/Logo';
+import Logo from '../../components/shared/Logo';
 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase-config';
-import { guest_login, guest_password } from '../shared/constants/constants';
+import { auth } from '../../firebase-config';
+import { guest_login, guest_password } from '../../shared/constants/constants';
 import Box from '@mui/material/Box/Box';
 
 const RegistrationPage: FC = () => {

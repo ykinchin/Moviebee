@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Logo from '../components/shared/Logo';
+import Logo from '../../components/shared/Logo';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import Box from '@mui/material/Box/Box';
 
 const LoginPage: FC = () => {

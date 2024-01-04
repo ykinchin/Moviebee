@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../shared/Logo';
-import useAuth from '../../hooks/useAuth';
+import Logo from '../../shared/Logo';
+import useAuth from '../../../hooks/useAuth';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import SearchField from '../SearchField/SearchField';
+import SearchField from '../../SearchField/SearchField';
 
 const Header: FC = () => {
   const { user, logout } = useAuth();

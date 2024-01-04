@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import Box from '@mui/material/Box';
-import { IMovie } from '../../shared/types';
+import { IMovie } from '../../../../shared/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-import HeroItem from '../HeroItem/HeroItem';
+import HeroItem from './HeroItem';
 import SwiperCore from 'swiper';
 import { Autoplay } from 'swiper/modules';
 
