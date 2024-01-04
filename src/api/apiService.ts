@@ -68,6 +68,10 @@ class ApiService {
     const url = this.baseUrl + 'person' + '/' + id;
     return axios.get(url, this.config);
   }
+  async personMovies(id?: string) {
+    const url = this.baseUrl + 'person' + '/' + id + '/movie_credits';
+    return axios.get(url, this.config);
+  }
 }
 
 export default new ApiService();
