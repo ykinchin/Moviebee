@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from './appRoutes';
 import Layout from '../components/Layout/Layout';
-import LoginPage from '../pages/LoginPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
 import { PUBLIC_ROUTES } from '../shared/constants/paths';
-import RegistrationPage from '../pages/RegistrationPage';
+import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 
 const AppRouter: FC = () => {
   return (
