@@ -64,6 +64,10 @@ class ApiService {
     const url = this.baseUrl + category + '/' + id + '/reviews';
     return axios.get<IDataReviews>(url, this.config);
   }
+  async personDetail(id?: string) {
+    const url = this.baseUrl + 'person' + '/' + id;
+    return axios.get(url, this.config);
+  }
 }
 
 export default new ApiService();
