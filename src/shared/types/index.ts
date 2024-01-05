@@ -140,3 +140,7 @@ export interface IPerson {
 export interface IPersonMovie extends Partial<IMovie> {
   character: string;
 }
+export interface IPersonTV extends Partial<IMovie> {
+  episode_count: number;
+  charanter: string;
+}
