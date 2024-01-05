@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { IMovie } from '../../../../shared/types';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { bannerUrl } from '../../../../shared/constants/constants';
