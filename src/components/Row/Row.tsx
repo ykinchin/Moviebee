@@ -8,9 +8,10 @@ import { Box, Typography } from '@mui/material';
 interface RowProps {
   title: string;
   data: IMovie[] | undefined;
+  isLoading: boolean;
 }
 
-const Row: FC<RowProps> = ({ title, data }) => {
+const Row: FC<RowProps> = ({ title, data, isLoading }) => {
   return (
     <Box mb={10}>
       <Typography
@@ -24,7 +25,10 @@ const Row: FC<RowProps> = ({ title, data }) => {
         {data &&
           data.map((movie) => (
             <SwiperSlide key={movie.id}>
-              <RowItem movie={movie} />
+              <RowItem
+                movie={movie}
+                isLoading={isLoading}
+              />
             </SwiperSlide>
           ))}
       </Slider>
