@@ -136,3 +136,7 @@ export interface IPerson {
   popularity: number;
   profile_path: string;
 }
+
+export interface IPersonMovie extends Partial<IMovie> {
+  character: string;
+}
