@@ -8,6 +8,7 @@ import { Chip, Typography, Divider } from '@mui/material';
 import CreditsSection from './components/CreditsSection/CreditsSection';
 import Row from '../../components/Row/Row';
 import ReviewsSection from './components/ReviewsSection/ReviewsSection';
+import noImage from '../../assets/noImage.svg';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
@@ -32,6 +33,12 @@ const MoviePage: FC = () => {
     return response.data.results;
   });
 
+  const imagePath = movie?.poster_path
+    ? imageUrl + movie.poster_path
+    : movie?.backdrop_path
+    ? imageUrl + movie.backdrop_path
+    : noImage;
+
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
       <Box sx={{ display: 'flex', width: '100%', gap: 20, pb: 10 }}>
@@ -51,6 +58,7 @@ const MoviePage: FC = () => {
             gap: 1
           }}
         >
+              src={imagePath}
           <Box
             sx={{
               display: 'flex',

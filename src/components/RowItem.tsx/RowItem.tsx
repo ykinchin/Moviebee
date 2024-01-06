@@ -4,6 +4,7 @@ import { imageUrl } from '../../shared/constants/constants';
 import './index.css';
 import { useNavigate } from 'react-router-dom';
 import { Skeleton, Box } from '@mui/material';
+import noImage from '../../assets/noImage.svg';
 
 interface RowItemProps {
   movie: IMovie;
@@ -12,6 +13,12 @@ interface RowItemProps {
 const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
   const navigate = useNavigate();
   const link = `/${movie.first_air_date ? 'tv' : 'movie'}/${movie.id}`;
+  const imagePath = movie?.backdrop_path
+    ? imageUrl + movie.backdrop_path
+    : movie?.poster_path
+    ? imageUrl + movie.poster_path
+    : noImage;
+
   return (
     <>
       {isLoading ? (
@@ -27,7 +34,7 @@ const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
           onClick={() => navigate(link)}
         >
           <img
-            src={`${imageUrl}${movie?.backdrop_path || movie?.poster_path}`}
+            src={imagePath}
             alt={movie?.title}
             style={{
               width: '100%',
