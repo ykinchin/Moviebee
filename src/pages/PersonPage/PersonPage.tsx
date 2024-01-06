@@ -43,6 +43,7 @@ const PersonPage: FC = () => {
   console.log(personTVs);
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
+    <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10, minHeight: '100vh' }}>
       <Box sx={{ display: 'flex', width: '100%', gap: 20, pb: 10 }}>
         <Box>
           <img
