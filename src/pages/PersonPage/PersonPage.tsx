@@ -21,6 +21,22 @@ const PersonPage: FC = () => {
     return response.data as IPerson;
   });
 
+
+  const { isLoading: isLoadingMovies, data: personMovies } = useQuery(
+    [`${id}movies`],
+    async () => {
+      const response = await apiService.personMovies(id);
+      return response.data.cast as IPersonMovie[];
+    }
+  );
+  const { isLoading: isLoadingTVs, data: personTVs } = useQuery(
+    [`${id}tvs`],
+    async () => {
+      const response = await apiService.personTVs(id);
+      return response.data.cast as IPersonMovie[];
+    }
+  );
+  console.log(personTVs);
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
       <Box sx={{ display: 'flex', width: '100%', gap: 20, pb: 10 }}>
