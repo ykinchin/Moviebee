@@ -1,24 +1,16 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { FC } from 'react';
 import { FC, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import apiService from '../../api/apiService';
 import { imageUrl } from '../../shared/constants/constants';
-import { IPerson } from '../../shared/types';
+import { IPerson, IPersonMovie } from '../../shared/types';
+import Row from '../../components/Row/Row';
 
 const PersonPage: FC = () => {
   const { id } = useParams();
   const { data: person } = useQuery([id], async () => {
     const response = await apiService.personDetail(id);
-    return response.data as IPerson;
-  });
-  const { data: personMovies } = useQuery([`${id}movies`], async () => {
-    const response = await apiService.personMovies(id);
-    return response.data as IPerson;
-  });
-  const { data: personTVs } = useQuery([`${id}tvs`], async () => {
-    const response = await apiService.personTVs(id);
     return response.data as IPerson;
   });
 
@@ -42,7 +34,6 @@ const PersonPage: FC = () => {
   );
   console.log(personTVs);
   return (
-    <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10 }}>
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10, minHeight: '100vh' }}>
       <Box sx={{ display: 'flex', width: '100%', gap: 20, pb: 10 }}>
         <Box>
@@ -128,6 +119,20 @@ const PersonPage: FC = () => {
           </Typography>
         </Box>
       </Box>
+      {personMovies && (
+        <Row
+          title={`Movies with ${person?.name}`}
+          isLoading={isLoadingMovies}
+          data={personMovies}
+        />
+      )}
+      {personMovies && (
+        <Row
+          title={`TV-Shows with ${person?.name}`}
+          isLoading={isLoadingTVs}
+          data={personTVs}
+        />
+      )}
     </Box>
   );
 };
