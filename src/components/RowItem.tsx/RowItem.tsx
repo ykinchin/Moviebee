@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IMovie } from '../../shared/types';
+import { IMovie, IPersonMovie } from '../../shared/types';
 import { imageUrl } from '../../shared/constants/constants';
 import './index.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { Skeleton, Box } from '@mui/material';
 import noImage from '../../assets/noImage.svg';
 
 interface RowItemProps {
-  movie: IMovie;
+  movie: IMovie | IPersonMovie;
   isLoading: boolean;
 }
 const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
