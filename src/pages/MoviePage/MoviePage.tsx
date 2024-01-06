@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import Box from '@mui/material/Box/Box';
 import { useQuery } from 'react-query';
 import apiService from '../../api/apiService';
@@ -12,6 +12,10 @@ import noImage from '../../assets/noImage.svg';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const { isLoading: isLoadingMovie, data: movie } = useQuery(
     [id],

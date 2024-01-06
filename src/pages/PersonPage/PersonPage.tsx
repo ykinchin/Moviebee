@@ -1,5 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
 import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import apiService from '../../api/apiService';
@@ -21,6 +22,9 @@ const PersonPage: FC = () => {
     return response.data as IPerson;
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const { isLoading: isLoadingMovies, data: personMovies } = useQuery(
     [`${id}movies`],
