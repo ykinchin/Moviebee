@@ -2,12 +2,14 @@ import { FC } from 'react';
 import Slider from '../Slider/Slider';
 import RowItem from '../RowItem.tsx/RowItem';
 import { SwiperSlide } from 'swiper/react';
-import { IMovie } from '../../shared/types';
+import { IMovie, IPersonMovie } from '../../shared/types';
 import { Box, Typography } from '@mui/material';
+
+type RowData = IMovie[] | IPersonMovie[];
 
 interface RowProps {
   title: string;
-  data: IMovie[] | undefined;
+  data: RowData | undefined;
   isLoading: boolean;
 }
 
