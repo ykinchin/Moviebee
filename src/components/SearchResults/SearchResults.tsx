@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import ResultItem from './ResultItem';
 
 interface SearchResultsProps {
-  data: IMovie[] | undefined;
+  data: IMovie[];
 }
 
 const SearchResults: FC<SearchResultsProps> = ({ data }) => {
