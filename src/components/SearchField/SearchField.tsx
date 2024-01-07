@@ -59,7 +59,7 @@ const SearchInput = () => {
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </Slide>
-      <SearchResults data={data} />
+      {data && <SearchResults data={data} />}
     </Box>
   );
 };
