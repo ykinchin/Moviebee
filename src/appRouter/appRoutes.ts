@@ -5,6 +5,7 @@ import { PUBLIC_ROUTES } from '../shared/constants/paths';
 
 type TRoute = {
   path: string;
+  isPrivate: boolean;
   Component: React.FC;
 };
 
