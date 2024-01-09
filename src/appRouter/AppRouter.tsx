@@ -1,29 +1,34 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { publicRoutes } from './appRoutes';
+import { appRoutes } from './appRoutes';
 import Layout from '../components/Layout/Layout';
 import LoginPage from '../pages/LoginPage/LoginPage';
-import { PUBLIC_ROUTES } from '../shared/constants/paths';
+import { APP_ROUTES } from '../shared/constants/paths';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
+import useAuth from '../hooks/useAuth';
 
 const AppRouter: FC = () => {
+  const { user } = useAuth();
+  console.log(user);
   return (
     <Routes>
       <Route element={<Layout />}>
-        {publicRoutes.map(({ path, Component }) => (
-          <Route
-            key={path}
-            path={path}
-            element={<Component />}
-          />
-        ))}
+        {appRoutes.map(({ path, Component, isPrivate }, i) =>
+          (isPrivate && user) || !isPrivate ? (
+            <Route
+              key={i}
+              path={path}
+              element={<Component />}
+            />
+          ) : null
+        )}
       </Route>
       <Route
-        path={PUBLIC_ROUTES.login}
+        path={APP_ROUTES.login}
         element={<LoginPage />}
       />
       <Route
-        path={PUBLIC_ROUTES.registration}
+        path={APP_ROUTES.registration}
         element={<RegistrationPage />}
       />
     </Routes>
