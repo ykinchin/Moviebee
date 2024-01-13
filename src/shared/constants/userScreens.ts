@@ -1,22 +1,24 @@
+import { APP_ROUTES } from './paths';
+
 export const userScreens = [
   {
     title: 'Profile',
-    path: '/:user/profile'
+    path: APP_ROUTES.userProfile
   },
   {
     title: 'My movies',
-    path: '/:user/movies'
+    path: APP_ROUTES.userMovies
   },
   {
     title: 'My TV-shows',
-    path: '/:user/tv-shows'
+    path: APP_ROUTES.userTVShows
   },
   {
     title: 'Favorite actors',
-    path: '/:user/actors'
+    path: APP_ROUTES.userActors
   },
   {
     title: 'My comments',
-    path: '/:user/comments'
+    path: APP_ROUTES.userComments
   }
 ];
