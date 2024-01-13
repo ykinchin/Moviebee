@@ -11,6 +11,7 @@ interface ResultItemProps {
 
 const ResultItem: FC<ResultItemProps> = ({ movie }) => {
   const navigate = useNavigate();
+
   return (
     <>
       {(movie.media_type === 'movie' || movie.media_type === 'tv') && (
@@ -49,7 +50,7 @@ const ResultItem: FC<ResultItemProps> = ({ movie }) => {
               variant='h6'
               sx={{ wordBreak: 'break-word', minWidth: '300px' }}
             >
-              {movie.title}
+              {movie.title || movie.name}
             </Typography>
             <Typography
               component='div'
