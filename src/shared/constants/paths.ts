@@ -6,5 +6,4 @@ export const APP_ROUTES = {
   movies: '/movies',
   details: '/:category/:id',
   person: '/credits/:id',
-  userProfile: '/user'
 };
