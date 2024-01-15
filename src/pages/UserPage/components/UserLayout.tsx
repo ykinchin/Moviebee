@@ -14,7 +14,7 @@ const UserLayout: FC = () => {
         variant='outlined'
         sx={{
           backgroundColor: 'inherit',
-          borderColor: 'rgba(255,255,255,0.4)',
+          borderColor: 'rgba(255,255,255,0.3)',
           color: 'white',
           p: 1,
           minHeight: '60vh'
