@@ -3,6 +3,7 @@ import { IMovie } from '../../../../shared/types';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { bannerUrl } from '../../../../shared/constants/constants';
 import { Link } from 'react-router-dom';
+import { APP_ROUTES } from '../../../../shared/constants/paths';
 
 interface HeroItemProps {
   movie: IMovie;
@@ -41,7 +42,7 @@ const HeroItem: FC<HeroItemProps> = ({ movie }) => {
           </Typography>
           <Typography variant='h6'>{movie.overview}</Typography>
         </Box>
-        <Link to={`/movie/${movie.id}`}>
+        <Link to={`${APP_ROUTES.movie}/${movie.id}`}>
           <Button
             variant='outlined'
             sx={{
