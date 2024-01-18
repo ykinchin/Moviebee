@@ -21,7 +21,9 @@ const UserLayout: FC = () => {
         }}
       >
         <UserHeader />
-        <Outlet />
+        <Box sx={{ mt: 3, mx: 2 }}>
+          <Outlet />
+        </Box>
       </Paper>
     </Box>
   );
