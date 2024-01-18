@@ -9,15 +9,18 @@ const UserHeader: FC = () => {
       position='relative'
       sx={{ backgroundColor: '#161d2f', zIndex: '10' }}
     >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box
-          display={'flex'}
-          gap={20}
-        >
+      <Toolbar
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Box sx={{ width: '100%', display: 'flex', gap: 20 }}>
           {userScreens.map((item, index) => (
             <Link
               to={item.path}
               key={index}
+              style={{ flex: 1 }}
             >
               <Typography
                 fontSize={18}
