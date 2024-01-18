@@ -61,7 +61,7 @@ const Header: FC = () => {
                   '&:hover': { backgroundColor: '#2d3343' }
                 }}
               >
-                <Link to='/user'>{userName}</Link>
+                <Link to={`${userName}/profile`}>{userName}</Link>
               </Button>
               <Button
                 color='error'
