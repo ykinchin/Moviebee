@@ -1,11 +1,9 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import Layout from '../components/Layout/Layout';
 import useAuth from '../hooks/useAuth';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 import UserLayout from '../pages/UserPage/components/UserLayout';
-import { APP_ROUTES } from '../shared/constants/paths';
 import { appRoutes } from './appRoutes';
 
 const AppRouter: FC = () => {
@@ -26,8 +24,6 @@ const AppRouter: FC = () => {
           ) : null,
         )}
       </Route>
-      <Route path={APP_ROUTES.login} element={<LoginPage />} />
-      <Route path={APP_ROUTES.registration} element={<RegistrationPage />} />
     </Routes>
   );
 };
