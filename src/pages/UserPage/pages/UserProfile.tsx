@@ -1,7 +1,8 @@
+import { Box } from '@mui/material';
 import { FC } from 'react';
 
 const UserProfile: FC = () => {
-  return <div>UserProfile</div>;
+  return <Box>UserProfile</Box>;
 };
 
 export default UserProfile;
