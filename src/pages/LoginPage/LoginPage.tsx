@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box/Box';
 
-import Logo from '../../components/shared/Logo';
 import useAuth from '../../hooks/useAuth';
 
 const LoginPage: FC = () => {
@@ -21,9 +20,6 @@ const LoginPage: FC = () => {
   };
 
   return (
-    <Box>
-      <Logo />
-      <Box>
         <Box onClick={() => handleLogin()}>Sign In as Guest</Box>
       </Box>
     </Box>
