@@ -20,6 +20,15 @@ const LoginPage: FC = () => {
   };
 
   return (
+    <Box
+      sx={{
+        width: '100%',
+        height: '70%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
         <Box onClick={() => handleLogin()}>Sign In as Guest</Box>
       </Box>
     </Box>
