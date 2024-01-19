@@ -1,10 +1,11 @@
-import { FC } from 'react';
-import Logo from '../../components/shared/Logo';
-
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { FC } from 'react';
+
+import Box from '@mui/material/Box/Box';
+
+import Logo from '../../components/shared/Logo';
 import { auth } from '../../firebase-config';
 import { guest_login, guest_password } from '../../shared/constants/constants';
-import Box from '@mui/material/Box/Box';
 
 const RegistrationPage: FC = () => {
   const handleRegister = (email: string, password: string) => {
