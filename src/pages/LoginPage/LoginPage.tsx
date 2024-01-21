@@ -19,6 +19,7 @@ const LoginPage: FC = () => {
         formTitle="Enter Your Account"
         buttonTitle="Sign in"
         text="If you still don't have an account?"
+        linkTitle="Create Your Account"
         linkPath="/registration"
       />
       {/* <Box onClick={() => handleLogin()}>Sign In as Guest</Box> */}

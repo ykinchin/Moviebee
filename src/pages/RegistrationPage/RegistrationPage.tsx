@@ -23,6 +23,7 @@ const RegistrationPage: FC = () => {
         formTitle="Create Your Account"
         buttonTitle="Sign up"
         text="If you already have an account?"
+        linkTitle="Enter Your Account"
         linkPath="/login"
       />
       {/* <Box onClick={() => handleLogin()}>Sign In as Guest</Box> */}

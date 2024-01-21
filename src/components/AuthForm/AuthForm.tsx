@@ -11,6 +11,7 @@ interface AuthFormProps {
   buttonTitle: string;
   text: string;
   linkPath: '/registration' | '/login';
+  linkTitle: string;
 }
 
 const AuthForm: FC<AuthFormProps> = ({
@@ -18,6 +19,7 @@ const AuthForm: FC<AuthFormProps> = ({
   buttonTitle,
   text,
   linkPath,
+  linkTitle,
 }) => {
   const { guestSignIn } = useAuth();
   const navigate = useNavigate();
@@ -53,7 +55,7 @@ const AuthForm: FC<AuthFormProps> = ({
       <Stack sx={{ alignItems: 'center', mt: 5, width: '100%', gap: 1 }}>
         <Typography>{text}</Typography>
         <Link to={linkPath} style={{ width: '100%' }}>
-          <Button sx={{ width: '100%' }}>{formTitle}</Button>
+          <Button sx={{ width: '100%' }}>{linkTitle}</Button>
         </Link>
         <Typography>or just</Typography>
         <Tooltip
