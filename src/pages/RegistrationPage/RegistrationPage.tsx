@@ -1,25 +1,31 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FC } from 'react';
 
 import Box from '@mui/material/Box/Box';
 
-import Logo from '../../components/shared/Logo';
-import { auth } from '../../firebase-config';
-import { guest_login, guest_password } from '../../shared/constants/constants';
+import AuthForm from '../../components/AuthForm/AuthForm';
 
 const RegistrationPage: FC = () => {
-  const handleRegister = (email: string, password: string) => {
-    createUserWithEmailAndPassword(auth, email, password);
-  };
+  // const handleRegister = (email: string, password: string) => {
+  //   createUserWithEmailAndPassword(auth, email, password);
+  // };
 
   return (
-    <Box>
-      <Logo />
-      <Box>
-        <Box onClick={() => handleRegister(guest_login, guest_password)}>
-          Sign In as Guest
-        </Box>
-      </Box>
+    <Box
+      sx={{
+        width: '100%',
+        height: '80%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <AuthForm
+        formTitle="Create Your Account"
+        buttonTitle="Sign up"
+        text="If you already have an account?"
+        linkPath="/login"
+      />
+      {/* <Box onClick={() => handleLogin()}>Sign In as Guest</Box> */}
     </Box>
   );
 };
