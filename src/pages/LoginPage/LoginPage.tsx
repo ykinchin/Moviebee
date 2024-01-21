@@ -1,24 +1,10 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box/Box';
 
-import useAuth from '../../hooks/useAuth';
+import AuthForm from '../../components/AuthForm/AuthForm';
 
 const LoginPage: FC = () => {
-  const navigate = useNavigate();
-
-  const { guestSignIn } = useAuth();
-
-  const handleLogin = async () => {
-    try {
-      await guestSignIn();
-      navigate('/', { replace: true });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   return (
     <Box
       sx={{
@@ -29,8 +15,13 @@ const LoginPage: FC = () => {
         alignItems: 'center',
       }}
     >
-        <Box onClick={() => handleLogin()}>Sign In as Guest</Box>
-      </Box>
+      <AuthForm
+        formTitle="Enter Your Account"
+        buttonTitle="Sign in"
+        text="If you still don't have an account?"
+        linkPath="/registration"
+      />
+      {/* <Box onClick={() => handleLogin()}>Sign In as Guest</Box> */}
     </Box>
   );
 };
