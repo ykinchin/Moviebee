@@ -141,3 +141,9 @@ export interface IPersonMovie extends Partial<IMovie> {
   character: string;
   episode_count?: number;
 }
+
+interface IComment {
+  movie: IMovie;
+  comment: string;
+  rating: number;
+}
