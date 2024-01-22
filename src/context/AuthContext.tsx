@@ -24,13 +24,6 @@ type AuthContextType = {
   logout: () => Promise<void>;
 };
 
-interface IUser {
-  userEmail: string;
-  phoneNumber: string | null;
-  photoURL: string | null;
-  uid: string;
-}
-
 const AuthContext = createContext<AuthContextType>({
   user: null,
   guestSignIn: () => {},
