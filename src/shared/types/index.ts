@@ -154,3 +154,11 @@ export interface IUser {
   photoURL?: string | null;
   uid?: string;
 }
+
+export interface IUserData {
+  user: IUser;
+  likedActors: IPerson[];
+  likedMovies: IMovie[];
+  likedSeries: IMovie[];
+  comments: IComment[];
+}
