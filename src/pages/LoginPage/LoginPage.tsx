@@ -22,7 +22,6 @@ const LoginPage: FC = () => {
         linkTitle="Create Your Account"
         linkPath="/registration"
       />
-      {/* <Box onClick={() => handleLogin()}>Sign In as Guest</Box> */}
     </Box>
   );
 };
