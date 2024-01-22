@@ -1,13 +1,15 @@
-import { createContext, useState, useEffect, FC } from 'react';
 import {
+  UserCredential,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
-  UserCredential
 } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { FC, createContext, useEffect, useState } from 'react';
 
-import { auth } from '../firebase-config';
+import { auth, db } from '../firebase-config';
+import { IUser, IUserData } from '../shared/types';
 
 type AuthProviderType = {
   children: JSX.Element;
@@ -18,7 +20,7 @@ type AuthContextType = {
   user: IUser | null;
   createUser: (
     email: string,
-    password: string
+    password: string,
   ) => Promise<UserCredential | void>;
   signIn: (email: string, password: string) => Promise<UserCredential | void>;
   logout: () => Promise<void>;
@@ -29,14 +31,60 @@ const AuthContext = createContext<AuthContextType>({
   guestSignIn: () => {},
   createUser: () => Promise.resolve(),
   signIn: () => Promise.resolve(),
-  logout: () => Promise.resolve()
+  logout: () => Promise.resolve(),
 });
 
 export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
   const [user, setUser] = useState<IUser | null>(null);
 
-  const createUser = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser({
+          userEmail: currentUser.email!,
+          phoneNumber: currentUser?.phoneNumber,
+          photoURL: currentUser?.photoURL,
+          uid: currentUser?.uid,
+        });
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const createUser = async (email: string, password: string) => {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+
+    // Wait for the user state to be updated before creating userData
+    setUser({
+      userEmail: userCredential.user.email!,
+      phoneNumber: userCredential.user?.phoneNumber,
+      photoURL: userCredential.user?.photoURL,
+      uid: userCredential.user?.uid,
+    });
+
+    const userData: IUserData = {
+      user: {
+        userEmail: userCredential.user.email!,
+        phoneNumber: userCredential.user?.phoneNumber,
+        photoURL: userCredential.user?.photoURL,
+        uid: userCredential.user?.uid,
+      },
+      likedActors: [],
+      likedMovies: [],
+      likedSeries: [],
+      comments: [],
+    };
+
+    await setDoc(doc(db, 'users', email), userData);
+
+    return userCredential;
   };
 
   const signIn = (email: string, password: string) => {
@@ -47,7 +95,7 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
     return signInWithEmailAndPassword(
       auth,
       'bestguest@gmail.com',
-      'bestguestomg'
+      'bestguestomg',
     );
   };
 
@@ -55,22 +103,6 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
     setUser(null);
     return signOut(auth);
   };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser({
-          userEmail: currentUser.email!,
-          phoneNumber: currentUser?.phoneNumber,
-          photoURL: currentUser?.photoURL,
-          uid: currentUser?.uid
-        });
-      }
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
   return (
     <AuthContext.Provider
