@@ -147,3 +147,10 @@ interface IComment {
   comment: string;
   rating: number;
 }
+
+export interface IUser {
+  userEmail?: string;
+  phoneNumber?: string | null;
+  photoURL?: string | null;
+  uid?: string;
+}
