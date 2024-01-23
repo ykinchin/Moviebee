@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Box, Button, Stack, Tooltip, Typography } from '@mui/material';
@@ -12,6 +12,7 @@ interface AuthFormProps {
   text: string;
   linkPath: '/registration' | '/login';
   linkTitle: string;
+  onClickHandler: (email: string, password: string) => void;
 }
 
 const AuthForm: FC<AuthFormProps> = ({
@@ -20,6 +21,7 @@ const AuthForm: FC<AuthFormProps> = ({
   text,
   linkPath,
   linkTitle,
+  onClickHandler,
 }) => {
   const { guestSignIn } = useAuth();
   const navigate = useNavigate();
@@ -50,7 +52,9 @@ const AuthForm: FC<AuthFormProps> = ({
         <CustomInput id="emailField" label="Email" />
         <CustomInput id="passwordField" label="Password" />
       </Stack>
-      <Button>{buttonTitle}</Button>
+      <Button onClick={() => onClickHandler(email, password)}>
+        {buttonTitle}
+      </Button>
 
       <Stack sx={{ alignItems: 'center', mt: 5, width: '100%', gap: 1 }}>
         <Typography>{text}</Typography>
