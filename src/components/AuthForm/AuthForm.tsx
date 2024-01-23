@@ -23,7 +23,11 @@ const AuthForm: FC<AuthFormProps> = ({
   linkTitle,
   onClickHandler,
 }) => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
   const { guestSignIn } = useAuth();
+
   const navigate = useNavigate();
 
   const handleGuestLogin = async () => {
@@ -49,8 +53,16 @@ const AuthForm: FC<AuthFormProps> = ({
         {formTitle}
       </Typography>
       <Stack sx={{ py: 5, gap: 3 }}>
-        <CustomInput id="emailField" label="Email" />
-        <CustomInput id="passwordField" label="Password" />
+        <CustomInput
+          id="emailField"
+          label="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <CustomInput
+          id="passwordField"
+          label="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </Stack>
       <Button onClick={() => onClickHandler(email, password)}>
         {buttonTitle}
