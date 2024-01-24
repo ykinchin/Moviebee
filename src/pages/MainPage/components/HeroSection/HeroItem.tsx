@@ -42,7 +42,7 @@ const HeroItem: FC<HeroItemProps> = ({ movie }) => {
           </Typography>
           <Typography variant='h6'>{movie.overview}</Typography>
         </Box>
-        <Link to={`${APP_ROUTES.movie}/${movie.id}`}>
+        <Link to={`movie/${movie.id}`}>
           <Button
             variant='outlined'
             sx={{
