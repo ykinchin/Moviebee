@@ -1,25 +1,26 @@
 import axios from 'axios';
-import { tmdb_key } from '../shared/constants/constants';
 
+import { tmdb_key } from '../shared/constants/constants';
 import {
   ICredits,
   IData,
   IDataReviews,
   IDetailedMovie,
   IMovieType,
-  ITvType
+  IPerson,
+  ITvType,
 } from '../shared/types';
 
 export const movieType: IMovieType = {
   upcoming: 'upcoming',
   popular: 'popular',
-  top_rated: 'top_rated'
+  top_rated: 'top_rated',
 };
 
 export const tvType: ITvType = {
   popular: 'popular',
   top_rated: 'top_rated',
-  on_the_air: 'on_the_air'
+  on_the_air: 'on_the_air',
 };
 
 class ApiService {
@@ -27,8 +28,8 @@ class ApiService {
 
   public config = {
     headers: {
-      Authorization: `Bearer ${tmdb_key}`
-    }
+      Authorization: `Bearer ${tmdb_key}`,
+    },
   };
   async getMovieList(type: keyof typeof movieType) {
     const url = this.baseUrl + 'movie/' + movieType[type];
@@ -43,8 +44,8 @@ class ApiService {
     const configWithQuery = {
       ...this.config,
       params: {
-        query: query
-      }
+        query: query,
+      },
     };
     return axios.get<IData>(`${url}`, configWithQuery);
   }
@@ -66,15 +67,15 @@ class ApiService {
   }
   async personDetail(id?: string) {
     const url = this.baseUrl + 'person' + '/' + id;
-    return axios.get(url, this.config);
+    return axios.get<IPerson>(url, this.config);
   }
   async personMovies(id?: string) {
     const url = this.baseUrl + 'person' + '/' + id + '/movie_credits';
-    return axios.get(url, this.config);
+    return axios.get<ICredits>(url, this.config);
   }
   async personTVs(id?: string) {
     const url = this.baseUrl + 'person' + '/' + id + '/tv_credits';
-    return axios.get(url, this.config);
+    return axios.get<ICredits>(url, this.config);
   }
 }
 
