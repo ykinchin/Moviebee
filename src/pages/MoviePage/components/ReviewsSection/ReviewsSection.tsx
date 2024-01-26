@@ -18,7 +18,7 @@ const ReviewsSection: FC<ReviewsSectionProps> = ({ reviews }) => {
       }}
     >
       {reviews.map((review) => (
-        <ReviewItem review={review} />
+        <ReviewItem review={review} key={review.id} />
       ))}
     </Box>
   );
