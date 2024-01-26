@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import { IReview } from '../../../../shared/types';
+
 import { Box } from '@mui/material';
+
+import { IReview } from '../../../../shared/types';
 import ReviewItem from './ReviewItem';
 
 interface ReviewsSectionProps {
@@ -14,7 +16,7 @@ const ReviewsSection: FC<ReviewsSectionProps> = ({ reviews }) => {
         display: 'flex',
         flexDirection: 'column',
         gap: 4,
-        mb: 10
+        mb: 10,
       }}
     >
       {reviews.map((review) => (
