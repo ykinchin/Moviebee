@@ -1,11 +1,13 @@
-import { Box, Divider, Typography } from '@mui/material';
 import { FC, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+
+import { Box, Divider, Typography } from '@mui/material';
+
 import apiService from '../../api/apiService';
+import Row from '../../components/Row/Row';
 import { imageUrl } from '../../shared/constants/constants';
 import { IPerson, IPersonMovie } from '../../shared/types';
-import Row from '../../components/Row/Row';
 
 const PersonPage: FC = () => {
   const { id } = useParams();
@@ -23,14 +25,14 @@ const PersonPage: FC = () => {
     async () => {
       const response = await apiService.personMovies(id);
       return response.data.cast as IPersonMovie[];
-    }
+    },
   );
   const { isLoading: isLoadingTVs, data: personTVs } = useQuery(
     [`${id}tvs`],
     async () => {
       const response = await apiService.personTVs(id);
       return response.data.cast as IPersonMovie[];
-    }
+    },
   );
   console.log(personTVs);
   return (
@@ -49,7 +51,7 @@ const PersonPage: FC = () => {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            gap: 1
+            gap: 1,
           }}
         >
           <Box
@@ -57,17 +59,17 @@ const PersonPage: FC = () => {
               display: 'flex',
               alignItems: 'center',
               width: '100%',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
             }}
             pb={5}
           >
-            <Typography variant='h4'>{person?.name}</Typography>
+            <Typography variant="h4">{person?.name}</Typography>
           </Box>
           <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: 2
+              gap: 2,
             }}
           >
             <Typography fontSize={18}>Born:</Typography>
@@ -80,7 +82,7 @@ const PersonPage: FC = () => {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 2
+                gap: 2,
               }}
             >
               <Typography fontSize={18}>Died:</Typography>
@@ -90,10 +92,7 @@ const PersonPage: FC = () => {
             </Box>
           )}
           <Box>
-            <Box
-              display={'flex'}
-              gap={2}
-            >
+            <Box display={'flex'} gap={2}>
               <Typography fontSize={18}>Place of birth:</Typography>
               <Typography>{person?.place_of_birth}</Typography>
             </Box>
@@ -102,7 +101,7 @@ const PersonPage: FC = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: 2
+              gap: 2,
             }}
           >
             <Typography fontSize={18}>Popularity: </Typography>
@@ -110,10 +109,7 @@ const PersonPage: FC = () => {
               {person?.popularity.toFixed(1)}
             </Typography>
           </Box>
-          <Divider
-            variant='fullWidth'
-            sx={{ backgroundColor: 'white' }}
-          />
+          <Divider variant="fullWidth" sx={{ backgroundColor: 'white' }} />
           <Typography sx={{ color: 'rgba(255,255,255,0.7)' }}>
             {person?.biography}
           </Typography>
