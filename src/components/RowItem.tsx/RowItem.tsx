@@ -1,10 +1,12 @@
 import { FC } from 'react';
-import { IMovie, IPersonMovie } from '../../shared/types';
-import { imageUrl } from '../../shared/constants/constants';
-import './index.css';
 import { useNavigate } from 'react-router-dom';
-import { Skeleton, Box } from '@mui/material';
+
+import { Box, Skeleton } from '@mui/material';
+
 import noImage from '../../assets/noImage.svg';
+import { imageUrl } from '../../shared/constants/constants';
+import { IMovie, IPersonMovie } from '../../shared/types';
+import './index.css';
 
 interface RowItemProps {
   movie: IMovie | IPersonMovie;
@@ -16,23 +18,20 @@ const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
   const imagePath = movie?.backdrop_path
     ? imageUrl + movie.backdrop_path
     : movie?.poster_path
-    ? imageUrl + movie.poster_path
-    : noImage;
+      ? imageUrl + movie.poster_path
+      : noImage;
 
   return (
     <>
       {isLoading ? (
         <Skeleton
-          variant='rectangular'
-          animation='wave'
-          height='260px'
-          width='100%'
+          variant="rectangular"
+          animation="wave"
+          height="260px"
+          width="100%"
         />
       ) : (
-        <Box
-          position={'relative'}
-          onClick={() => navigate(link)}
-        >
+        <Box position={'relative'} onClick={() => navigate(link)}>
           <img
             src={imagePath}
             alt={movie?.title}
@@ -41,7 +40,7 @@ const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
               objectFit: 'cover',
               objectPosition: 'center top',
               height: '260px',
-              display: 'block'
+              display: 'block',
             }}
           />
           <Box
@@ -56,7 +55,7 @@ const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
               opacity: '0',
               px: '2rem',
               textAlign: 'center',
-              '&:hover': { background: 'rgba(0, 0, 0, 0.8)', opacity: '100' }
+              '&:hover': { background: 'rgba(0, 0, 0, 0.8)', opacity: '100' },
             }}
           >
             <Box
@@ -66,7 +65,7 @@ const RowItem: FC<RowItemProps> = ({ movie, isLoading }) => {
                 alignItems: 'center',
                 height: '100%',
                 textTransform: 'uppercase',
-                letterSpacing: '1px'
+                letterSpacing: '1px',
               }}
             >
               {movie?.title || movie?.name}
