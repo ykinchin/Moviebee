@@ -115,9 +115,20 @@ const MoviePage: FC = () => {
               }}
               pb={5}
             >
-              <Typography variant='h4'>
-                {movie?.title || movie?.name}
-              </Typography>
+              <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
+                <Typography variant="h4">
+                  {movie?.title || movie?.name}
+                </Typography>
+                <Button onClick={onAddHandler}>
+                  {likedMedia?.includes(`${id}`) ? (
+                    <FavoriteIcon sx={{ color: '	rgb(255,99,71)' }} />
+                  ) : (
+                    <FavoriteBorderIcon
+                      sx={{ color: 'rgba(255,255,255,0.7)' }}
+                    />
+                  )}
+                </Button>
+              </Stack>
               <Box
                 sx={{
                   border: `4px solid ${
