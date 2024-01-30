@@ -22,7 +22,7 @@ const MoviePage: FC = () => {
     async () => {
       const response = await apiService.detail(category, id);
       return response.data;
-    }
+    },
   );
 
   const { isLoading: isLoadingCredits, data: credits } = useQuery(
@@ -30,7 +30,7 @@ const MoviePage: FC = () => {
     async () => {
       const response = await apiService.credits(category, id);
       return response.data;
-    }
+    },
   );
 
   const { isLoading: isLoadingSimilar, data: similar } = useQuery(
@@ -38,7 +38,7 @@ const MoviePage: FC = () => {
     async () => {
       const response = await apiService.similar(category, id);
       return response.data.results;
-    }
+    },
   );
 
   const { data: reviews } = useQuery([`${id}-reviews`], async () => {
@@ -49,8 +49,8 @@ const MoviePage: FC = () => {
   const imagePath = movie?.poster_path
     ? imageUrl + movie.poster_path
     : movie?.backdrop_path
-    ? imageUrl + movie.backdrop_path
-    : noImage;
+      ? imageUrl + movie.backdrop_path
+      : noImage;
 
   return (
     <Box sx={{ maxWidth: '60%', mx: 'auto', mt: 10, minHeight: '100vh' }}>
@@ -60,7 +60,7 @@ const MoviePage: FC = () => {
           width: '100%',
           gap: 20,
           pb: 10,
-          height: '50vh'
+          height: '50vh',
         }}
       >
         <Box
@@ -68,24 +68,24 @@ const MoviePage: FC = () => {
             width: '100%',
             height: '100%',
             maxWidth: '400px',
-            minWidth: '200px'
+            minWidth: '200px',
           }}
         >
           {isLoadingMovie ? (
             <Skeleton
-              variant='rectangular'
-              animation='wave'
+              variant="rectangular"
+              animation="wave"
               sx={{
                 width: '100%',
                 height: '100%',
                 maxWidth: '400px',
-                minWidth: '200px'
+                minWidth: '200px',
               }}
             />
           ) : (
             <img
-              width='100%'
-              height='100%'
+              width="100%"
+              height="100%"
               style={{ objectFit: 'cover' }}
               src={imagePath}
               alt={`${movie?.title} ` || 'movie poster'}
@@ -93,7 +93,7 @@ const MoviePage: FC = () => {
           )}
         </Box>
         {isLoadingMovie ? (
-          <Skeleton width='100%' />
+          <Skeleton width="100%" />
         ) : (
           <Box
             sx={{
@@ -102,7 +102,7 @@ const MoviePage: FC = () => {
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
-              gap: 1
+              gap: 1,
             }}
           >
             <Box
@@ -110,7 +110,7 @@ const MoviePage: FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 width: '100%',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
               }}
               pb={5}
             >
@@ -125,7 +125,7 @@ const MoviePage: FC = () => {
                       : 'red'
                   }`,
                   borderRadius: 10,
-                  p: 1
+                  p: 1,
                 }}
               >
                 {movie?.vote_average.toFixed(1)}
@@ -140,7 +140,7 @@ const MoviePage: FC = () => {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 2
+                gap: 2,
               }}
             >
               <Typography fontSize={18}>Genre:</Typography>
@@ -149,8 +149,8 @@ const MoviePage: FC = () => {
                   <Chip
                     key={genre.id}
                     label={genre.name}
-                    color='default'
-                    variant='outlined'
+                    color="default"
+                    variant="outlined"
                     sx={{ color: 'white', borderRadius: 2 }}
                   />
                 ))}
@@ -158,20 +158,14 @@ const MoviePage: FC = () => {
             </Box>
             <Box>
               {category === 'movie' ? (
-                <Box
-                  display={'flex'}
-                  gap={2}
-                >
+                <Box display={'flex'} gap={2}>
                   <Typography fontSize={18}>Release date:</Typography>
                   <Typography sx={{ textDecoration: 'underline' }}>
                     {movie?.release_date}
                   </Typography>
                 </Box>
               ) : (
-                <Box
-                  display={'flex'}
-                  gap={2}
-                >
+                <Box display={'flex'} gap={2}>
                   <Typography fontSize={18}>First aire date:</Typography>
                   <Typography sx={{ textDecoration: 'underline' }}>
                     {movie?.first_air_date}
@@ -179,10 +173,7 @@ const MoviePage: FC = () => {
                 </Box>
               )}
             </Box>
-            <Box
-              display={'flex'}
-              gap={2}
-            >
+            <Box display={'flex'} gap={2}>
               <Typography fontSize={18}>Original language:</Typography>
               <Typography sx={{ textDecoration: 'underline' }}>
                 {movie?.original_language}
@@ -192,7 +183,7 @@ const MoviePage: FC = () => {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 2
+                gap: 2,
               }}
             >
               <Typography fontSize={18}>Production countries:</Typography>
@@ -201,26 +192,20 @@ const MoviePage: FC = () => {
                   <Chip
                     key={country.iso_3166_1}
                     label={country.iso_3166_1}
-                    color='default'
-                    variant='outlined'
+                    color="default"
+                    variant="outlined"
                     sx={{ color: 'white', borderRadius: 2 }}
                   />
                 ))}
               </Box>
             </Box>
-            <Box
-              display={'flex'}
-              gap={2}
-            >
+            <Box display={'flex'} gap={2}>
               <Typography fontSize={18}>Status:</Typography>
               <Typography sx={{ textDecoration: 'underline' }}>
                 {movie?.status}
               </Typography>
             </Box>
-            <Divider
-              variant='fullWidth'
-              sx={{ backgroundColor: 'white' }}
-            />
+            <Divider variant="fullWidth" sx={{ backgroundColor: 'white' }} />
             <Typography sx={{ color: 'rgba(255,255,255,0.7)' }}>
               {movie?.overview}
             </Typography>
@@ -229,31 +214,22 @@ const MoviePage: FC = () => {
       </Box>
       <Box>
         {isLoadingCredits ? (
-          <Skeleton
-            variant='rectangular'
-            animation='wave'
-            width='100%'
-          />
+          <Skeleton variant="rectangular" animation="wave" width="100%" />
         ) : (
-          credits && (
-            <CreditsSection
-              credits={credits}
-              title='cast'
-            />
-          )
+          credits && <CreditsSection credits={credits} title="cast" />
         )}
         {isLoadingSimilar ? (
           <Skeleton
-            variant='rectangular'
-            animation='wave'
-            width='100%'
-            height='300px'
+            variant="rectangular"
+            animation="wave"
+            width="100%"
+            height="300px"
           />
         ) : (
           similar && (
             <Row
               data={similar}
-              title='You might like it'
+              title="You might like it"
               isLoading={isLoadingSimilar}
             />
           )
