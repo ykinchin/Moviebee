@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { IMovie } from '../../../../shared/types';
-import { Box, Button, Paper, Typography } from '@mui/material';
-import { bannerUrl } from '../../../../shared/constants/constants';
 import { Link } from 'react-router-dom';
-import { APP_ROUTES } from '../../../../shared/constants/paths';
+
+import { Box, Button, Paper, Typography } from '@mui/material';
+
+import { bannerUrl } from '../../../../shared/constants/constants';
+import { IMovie } from '../../../../shared/types';
 
 interface HeroItemProps {
   movie: IMovie;
@@ -27,29 +28,23 @@ const HeroItem: FC<HeroItemProps> = ({ movie }) => {
           zIndex: '20',
           top: '20%',
           left: '5%',
-          backgroundColor: 'rgba(0, 0, 0, 0.7)'
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
         }}
       >
-        <Box
-          color='white'
-          pb={8}
-        >
-          <Typography
-            variant='h4'
-            pb={2}
-          >
+        <Box color="white" pb={8}>
+          <Typography variant="h4" pb={2}>
             {movie.name || movie.title}
           </Typography>
-          <Typography variant='h6'>{movie.overview}</Typography>
+          <Typography variant="h6">{movie.overview}</Typography>
         </Box>
         <Link to={`movie/${movie.id}`}>
           <Button
-            variant='outlined'
+            variant="outlined"
             sx={{
               color: 'white',
               border: '1px solid white',
               borderRadius: '0',
-              ':hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+              ':hover': { backgroundColor: 'rgba(255,255,255,0.1)' },
             }}
           >
             To the movie page
@@ -62,7 +57,7 @@ const HeroItem: FC<HeroItemProps> = ({ movie }) => {
         style={{
           width: '100%',
           objectFit: 'cover',
-          objectPosition: 'center top'
+          objectPosition: 'center top',
         }}
       />
     </Box>
