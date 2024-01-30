@@ -12,6 +12,7 @@ import noImage from '../../assets/noImage.svg';
 
 const MoviePage: FC = () => {
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
+  const userDocRef = doc(db, 'users', `${user?.userEmail}`);
 
   useEffect(() => {
     window.scrollTo(0, 0);
