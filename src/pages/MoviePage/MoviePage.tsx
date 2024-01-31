@@ -11,8 +11,18 @@ import ReviewsSection from './components/ReviewsSection/ReviewsSection';
 import noImage from '../../assets/noImage.svg';
 
 const MoviePage: FC = () => {
+  const [likedMedia, setLikedMedia] = useState<null | string[]>(null);
+
   const { id, category } = useParams<Record<string, 'movie' | 'tv'>>();
+  const { user } = useAuth();
+
   const userDocRef = doc(db, 'users', `${user?.userEmail}`);
+
+  useEffect(() => {
+    onSnapshot(doc(db, 'users', `${user?.userEmail}`), (doc) => {
+      setLikedMedia(doc.data()?.likedMovies.concat(doc.data()?.likedSeries));
+    });
+  }, [user?.userEmail]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
